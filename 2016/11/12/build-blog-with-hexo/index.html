@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://weitianyao.com">
+  <title>博客搭建系列一：用hexo搭建个人博客 | Teal的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;emsp;&amp;emsp;本来不准备写的，因为网上一搜一大堆讲如何用hexo搭建博客的文章，但是，一来这个markdown语法以前没写过，想用来练练手。二来，网上文章有的写的比较早，一些配置和api可能已经变了。好的，啰嗦玩了，下面开始正文。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博客搭建系列一：用hexo搭建个人博客">
+<meta property="og:url" content="http://weitianyao.com/2016/11/12/build-blog-with-hexo/index.html">
+<meta property="og:site_name" content="Teal的博客">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;本来不准备写的，因为网上一搜一大堆讲如何用hexo搭建博客的文章，但是，一来这个markdown语法以前没写过，想用来练练手。二来，网上文章有的写的比较早，一些配置和api可能已经变了。好的，啰嗦玩了，下面开始正文。">
+<meta property="og:image" content="http://weitianyao.com/assets/blogImg/dig.jpg">
+<meta property="og:updated_time" content="2016-11-12T14:42:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="博客搭建系列一：用hexo搭建个人博客">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;本来不准备写的，因为网上一搜一大堆讲如何用hexo搭建博客的文章，但是，一来这个markdown语法以前没写过，想用来练练手。二来，网上文章有的写的比较早，一些配置和api可能已经变了。好的，啰嗦玩了，下面开始正文。">
+<meta name="twitter:image" content="http://weitianyao.com/assets/blogImg/dig.jpg">
+  
+  
+    <link rel="icon" href="/assets/blogImg/favicon.ico">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/assets/blogImg/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Teal</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">前端码农</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/tywei90" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="http://weibo.com/1762959307/profile" title="weibo">weibo</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/tywei90" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Teal</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/assets/blogImg/avatar.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Teal</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">前端码农</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/tywei90" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/1762959307/profile" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/tywei90" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-build-blog-with-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      博客搭建系列一：用hexo搭建个人博客
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&emsp;&emsp;本来不准备写的，因为网上一搜一大堆讲如何用hexo搭建博客的文章，但是，一来这个markdown语法以前没写过，想用来练练手。二来，网上文章有的写的比较早，一些配置和api可能已经变了。好的，啰嗦玩了，下面开始正文。<br><a id="more"></a><br>&emsp;&emsp;首先声明，本教程是针对mac的，不保证windows执行没有问题</p>
+<h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><blockquote>
+<p>安装node</p>
+</blockquote>
+<p>&emsp;&emsp;nodejs是服务器语言，借助google的chrome浏览器V8引擎，可以让前端js脚本运行在服务器端，前后端语言统一，不要太美~在这里，他主要是用来生成静态页面的。<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js官网</a>下载相应平台的最新版本，一路安装即可。</p>
+<blockquote>
+<p>安装git</p>
+</blockquote>
+<p>&emsp;&emsp;把本地的hexo内容提交到github上去，安装Xcode就自带有Git。可以用命令行，当然你也可以source tree可视化工具来管理。</p>
+<blockquote>
+<p>申请github账号</p>
+</blockquote>
+<p>&emsp;&emsp;hexo博客是一个静态博客，内容是托管在github上的。去官网注册申请，然后配置下SSH Keys，这样就不用每次提交都输入用户名和密码了。<a href="http://blog.csdn.net/yhqbsand/article/details/22763411" target="_blank" rel="external">mac ssh key 获取</a></p>
+<h2 id="hexo搭建博客"><a href="#hexo搭建博客" class="headerlink" title="hexo搭建博客"></a>hexo搭建博客</h2><blockquote>
+<p>全局安装hexo</p>
+</blockquote>
+<p>&emsp;&emsp;确保上述环境安装好之后，全局安装hexo:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g hexo</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>初始化</p>
+</blockquote>
+<p>&emsp;&emsp;创建项目文件夹，如myBlog<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir myBlog</div><div class="line">cd myBlog</div><div class="line">hexo init</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;这样，hexo就安装完毕了</p>
+<blockquote>
+<p>生成静态页面</p>
+</blockquote>
+<p>&emsp;&emsp;在myBlog文件夹下，执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo g (或hexo generate)</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;这样，hexo就会编译生成静态页面，在public目录下</p>
+<blockquote>
+<p>启动本地服务器</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo s (或hexo server)</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;在bash命令行，按下command键单击 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> ，即可用浏览器打开此页面。可以做本地预览<br>&emsp;&emsp;恭喜！你已经看到自己的博客了。但是域名和服务器都是自己电脑，我们需要关联github，继续往下看</p>
+<h2 id="部署github"><a href="#部署github" class="headerlink" title="部署github"></a>部署github</h2><blockquote>
+<p>新建仓库</p>
+</blockquote>
+<p>&emsp;&emsp;在github上创建新的仓库，仓库名必须为[your_user_name.github.io]，将自己的github用户名替换掉your_user_name。</p>
+<blockquote>
+<p>编辑文件_config.yml，建立关联</p>
+</blockquote>
+<p>&emsp;&emsp;在myBlog根目录找到_config.yml文件，打开它，如果你有sublime编辑器，并安装全局命令。可直接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">subl -w _config.yml</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;在最下面，改成这样。替换掉your_user_name。一定要注意: 这里的所有配置:后面都要加空格<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy: </div><div class="line">  type: git</div><div class="line">  repository: https://github.com/your_user_name/your_user_name.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>npm安装依赖，才能使用git部署</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<blockquote>
+<p>将博客部署到github</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d (或hexo deploy)</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;打开网址 <a href="http://tywei90.github.io/" target="_blank" rel="external">http://tywei90.github.io/</a> tywei90是我的github用户名，换成你自己的就行。看到没？你的博客已经上线了~</p>
+<p>&emsp;&emsp;等等。。好像哪里不对。如果这样，岂不是每个github用户都有一个自己的域名，github那来的这么多域名？其实你只要在你的bash命令行执行命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dig tywei90.github.io</div></pre></td></tr></table></figure></p>
+<p>我们会看到：<br><img src="/assets/blogImg/dig.jpg" alt="dig结果" title="dig结果"></p>
+<p>&emsp;&emsp;dig命令是查网址的dns解析的，我们发现博客地址被CNAME到github.map.fastly.net.上，他的服务器ip是151.101.100.133。什么意思呢，我们先来解释下CNAME。</p>
+<p>&emsp;&emsp;CNAME指别名记录也被称为规范名字。这种记录允许您将多个域名需要指向同一服务器IP，此时您就可以将一个域名做A记录指向服务器IP，然后将其他的域名做别名(即CNAME)到A记录的域名上；那么当您的服务器IP地址变更时，您就可以不必对一个一个域名做更改指向了，只需要更改A记录的那个域名到服务器新IP上，其他做别名（即CNAME）的那些域名的指向将自动更改到新的IP地址上。</p>
+<p>&emsp;&emsp;总结下：也就是说，我们的博客地址都会被映射到ip为151.101.100.133的主机上，然后github会根据我们的用户名查找相应的静态文件，然后返回。</p>
+<h2 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h2><blockquote>
+<p>hexo部署三步走</p>
+</blockquote>
+<p>每次部署博客都要执行下面三步<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo g</div><div class="line">hexo d</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>hexo常用命令</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">hexo new &quot;postName&quot; #新建文章</div><div class="line">hexo new page &quot;pageName&quot; #新建页面</div><div class="line">hexo generate #生成静态页面至public目录</div><div class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</div><div class="line">hexo deploy #将.deploy目录部署到GitHub</div><div class="line">hexo help  #查看帮助</div><div class="line">hexo version  #查看Hexo的版本</div></pre></td></tr></table></figure>
+<blockquote>
+<p>hexo主题</p>
+</blockquote>
+<p>hexo有很多漂亮的主题可选，这也是为什么我没有选择jekyll的原因。</p>
+<ul>
+<li><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">Yilia</a> - Responsive and simple style 强烈推荐，我用得就是这个。(ps: 作者人也很nice~)</li>
+<li><a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT</a> -Elegant Theme for Hexo 都有自己的官网了，用的人很多</li>
+<li><a href="https://github.com/daisygao/hexo-themes-cover" target="_blank" rel="external">Cover</a> - A chic theme with facebook-like cover photo </li>
+</ul>
+<p>至于主题如何配置，我就不细说了，不同主题不一样，大家可以去参阅相关文档。</p>
+<blockquote>
+<p>博客写作技巧</p>
+</blockquote>
+<p>1、如何让文章想只显示一部分和一个 阅读全文 的按钮？<br>答：在文章中加一个 <code>&lt;!--more--&gt; ， &lt;!--more--&gt;</code> 后面的内容就不会显示出来了。</p>
+<p>2、如何给文章添加标签？<br>答：在文章的开头有个tags配置项，配置格式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">tags:</div><div class="line">    - hexo</div><div class="line">    - 博客</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/12/build-blog-with-hexo/" class="archive-article-date">
+  	<time datetime="2016-11-12T10:04:23.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-12</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/11/06/first-article/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">beginning</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="build-blog-with-hexo" data-title="博客搭建系列一：用hexo搭建个人博客" data-url="http://weitianyao.com/2016/11/12/build-blog-with-hexo/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"tywei90"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Teal
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">Teal&lt;/br&gt;西电12级&lt;/br&gt;目前是一枚前端&lt;/br&gt;&lt;/br&gt;上海华为工作半年&lt;/br&gt;现就职于北京网易&lt;/br&gt;&lt;/br&gt;喜欢打篮球&lt;/br&gt;自认为技术还不错</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
