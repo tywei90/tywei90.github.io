@@ -7,18 +7,22 @@
   <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://weitianyao.com">
-  <title>beginning | Teal的博客</title>
+  <title>博客搭建系列二：个人博客绑定自己域名 | Teal的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="大家好，这是我的博客，用hexo搭建的，托管在github和coding上。&amp;emsp;&amp;emsp;网上有很多可以写个人博客的网站，比如CSDN、博客园、简书等。我之前也在CSDN开通了自己的博客，但是感觉页面样式不太喜欢，简书还算可以的。不过，终究是别人的网站，还是想搞一个属于自己的博客。最好有是可以有自己的域名，这样更专(zhuang)业(bi)。而且要支持百度搜索。这就出现了我后面的一系列关">
+  <meta name="description" content="&amp;emsp;&amp;emsp;上一篇文章，我们详细说明了如何用hexo搭建个人博客，并且有了自己的博客地址。但是，有的同学可能觉得还不够牛逼。ok，那下面我分享下自己的博客是如何绑定自己申请的域名。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="beginning">
-<meta property="og:url" content="http://weitianyao.com/2016/11/06/first-article/index.html">
+<meta property="og:title" content="博客搭建系列二：个人博客绑定自己域名">
+<meta property="og:url" content="http://weitianyao.com/2016/11/15/blog-bind-domain/index.html">
 <meta property="og:site_name" content="Teal的博客">
-<meta property="og:description" content="大家好，这是我的博客，用hexo搭建的，托管在github和coding上。&amp;emsp;&amp;emsp;网上有很多可以写个人博客的网站，比如CSDN、博客园、简书等。我之前也在CSDN开通了自己的博客，但是感觉页面样式不太喜欢，简书还算可以的。不过，终究是别人的网站，还是想搞一个属于自己的博客。最好有是可以有自己的域名，这样更专(zhuang)业(bi)。而且要支持百度搜索。这就出现了我后面的一系列关">
-<meta property="og:updated_time" content="2016-11-12T14:50:08.000Z">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;上一篇文章，我们详细说明了如何用hexo搭建个人博客，并且有了自己的博客地址。但是，有的同学可能觉得还不够牛逼。ok，那下面我分享下自己的博客是如何绑定自己申请的域名。">
+<meta property="og:image" content="http://weitianyao.com/assets/blogImg/dnspod.png">
+<meta property="og:image" content="http://weitianyao.com/assets/blogImg/dns.png">
+<meta property="og:image" content="http://weitianyao.com/assets/blogImg/CNAME.png">
+<meta property="og:updated_time" content="2016-11-15T16:31:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="beginning">
-<meta name="twitter:description" content="大家好，这是我的博客，用hexo搭建的，托管在github和coding上。&amp;emsp;&amp;emsp;网上有很多可以写个人博客的网站，比如CSDN、博客园、简书等。我之前也在CSDN开通了自己的博客，但是感觉页面样式不太喜欢，简书还算可以的。不过，终究是别人的网站，还是想搞一个属于自己的博客。最好有是可以有自己的域名，这样更专(zhuang)业(bi)。而且要支持百度搜索。这就出现了我后面的一系列关">
+<meta name="twitter:title" content="博客搭建系列二：个人博客绑定自己域名">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;上一篇文章，我们详细说明了如何用hexo搭建个人博客，并且有了自己的博客地址。但是，有的同学可能觉得还不够牛逼。ok，那下面我分享下自己的博客是如何绑定自己申请的域名。">
+<meta name="twitter:image" content="http://weitianyao.com/assets/blogImg/dnspod.png">
   
   
     <link rel="icon" href="/assets/blogImg/favicon.ico">
@@ -144,7 +148,7 @@ ga('send', 'pageview');
 </nav>
 
       <div class="body-wrap">
-        <article id="post-first-article" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-blog-bind-domain" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -154,7 +158,7 @@ ga('send', 'pageview');
         
   
     <h1 class="article-title" itemprop="name">
-      beginning
+      博客搭建系列二：个人博客绑定自己域名
     </h1>
   
 
@@ -162,22 +166,33 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="大家好，这是我的博客，用hexo搭建的，托管在github和coding上。"><a href="#大家好，这是我的博客，用hexo搭建的，托管在github和coding上。" class="headerlink" title="大家好，这是我的博客，用hexo搭建的，托管在github和coding上。"></a>大家好，这是我的博客，用hexo搭建的，托管在<a href="https://github.com/tywei90/tywei90.github.io" target="_blank" rel="external">github</a>和<a href="https://coding.net/u/tywei/p/tywei/git" target="_blank" rel="external">coding</a>上。</h4><p>&emsp;&emsp;网上有很多可以写个人博客的网站，比如CSDN、博客园、简书等。我之前也在CSDN开通了自己的博客，但是感觉页面样式不太喜欢，简书还算可以的。不过，终究是别人的网站，还是想搞一个属于自己的博客。最好有是可以有自己的域名，这样更专(zhuang)业(bi)。而且要支持百度搜索。这就出现了我后面的一系列关于博客搭建的文章。<br><a id="more"></a></p>
-<blockquote>
-<p>这里会记录我平时遇到的一些技术问题的思考和总结，与大家共勉</p>
-</blockquote>
+        <p>&emsp;&emsp;上一篇文章，我们详细说明了如何用hexo搭建个人博客，并且有了自己的博客地址。但是，有的同学可能觉得还不够牛逼。ok，那下面我分享下自己的博客是如何绑定自己申请的域名。</p>
+<a id="more"></a>
+<h2 id="1、申请域名"><a href="#1、申请域名" class="headerlink" title="1、申请域名"></a>1、申请域名</h2><p>&emsp;&emsp;博客绑定域名，首先，你得有个域名。关于申请域名的网址有很多，国内有万网（被阿里云收购了），新网等。不过我不推荐在国内购买域名，啊。。。你问我原因？。。咦，今天天气不错~</p>
+<p>&emsp;&emsp;国外的域名注册商很多，用的比较多的有GoDaddy、namecheap、name.com等，至于选哪个，推荐大家一篇知乎上的文章 <a href="https://www.zhihu.com/question/19551906" target="_blank" rel="external">https://www.zhihu.com/question/19551906</a> 没错，我是在namecheap上注册的，现在貌似没有优惠码了，不过他们家免费送Whois 隐私保护（Whois查询不到注册人），SSL证书不再免费，不过和域名一起购买只需再花2$，总共一年也就70几块钱。</p>
+<p>&emsp;&emsp;这里推荐大家申请后缀为.com的域名。当然了，如果你喜欢有个性的域名，或者希望网址能短一点，选其他的应该更容易命中。还有点要注意，namecheap不支持支付宝，银联，大家可以选择带有master或者visa标志的银行卡支付。这里再给大家推荐个比价网站 <a href="https://www.domcomp.com/" target="_blank" rel="external">https://www.domcomp.com/</a> 有个网站第一年很便宜，后面续约越来越贵。我想一般我们的域名申请了应该会用挺久的吧。</p>
+<h2 id="2、注册DNSPod，添加域名和记录"><a href="#2、注册DNSPod，添加域名和记录" class="headerlink" title="2、注册DNSPod，添加域名和记录"></a>2、注册<a href="https://www.dnspod.cn" target="_blank" rel="external">DNSPod</a>，添加域名和记录</h2><p>&emsp;&emsp;DNS域名解析一般都是用的DNSPod，大家注册以后去域名解析一栏添加自己刚申请的域名。然后设置如下图所示:</p>
+<p><img src="/assets/blogImg/dnspod.png" alt="DNS域名解析设置" title="DNS域名解析设置"></p>
+<p>&emsp;&emsp;大家只需要添加红框部分内容即可，其他设置下一篇文章会说。这里我们添加了主机记录分别为www和@两种类型，分别对应着您的网址带www和不带www的映射。防止有的浏览器默认添加www导致网页打不开。</p>
+<p>&emsp;&emsp;一定要注意我们的CNAME记录指向值，我看网上很多都是设置的一个ip值，其实这样不好。因为第一，ip地址可能会变。第二，写死ip地址，万一这个主机挂了，或者某地区的这个ip网络信号不好，我们的网页就不打不开。大家可以在命令行dig一下，上一篇文章说过这个命令。</p>
+<p>&emsp;&emsp;还有个非常重要没说，就是去你域名注册的网站去绑定DNSPod的dns服务器设置。如果是namecheap网站，替换掉网址 <a href="https://ap.www.namecheap.com/domains/domaincontrolpanel/your_domain_name/domain" target="_blank" rel="external">https://ap.www.namecheap.com/domains/domaincontrolpanel/your_domain_name/domain</a> 中的your_domain_name，添加两条NAMESERVERS记录，设置如下图所示。</p>
+<p><img src="/assets/blogImg/dns.png" alt="绑定DNSPod服务器设置" title="绑定DNSPod服务器设置"></p>
+<p>&emsp;&emsp;这样，你的网站才能被DNSPod做dns解析。一般需要一定时间才能生效，我当时是半个小时左右吧。</p>
+<h2 id="3、添加CNAME文件"><a href="#3、添加CNAME文件" class="headerlink" title="3、添加CNAME文件"></a>3、添加CNAME文件</h2><p>&emsp;&emsp;在你的博客source文件夹里创建CNAME文件，不带任何后缀，里面添加你的域名信息，如：weitianyao.com（注意前面不添加<code>http://</code>），如下图：</p>
+<p><img src="/assets/blogImg/CNAME.png" alt="添加CNAME文件" title="添加CNAME文件"></p>
+<p>&emsp;&emsp;然后就<code>hexo d</code>试试吧。</p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/11/06/first-article/" class="archive-article-date">
-  	<time datetime="2016-11-06T11:41:20.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-06</time>
+      <a href="/2016/11/15/blog-bind-domain/" class="archive-article-date">
+  	<time datetime="2016-11-15T14:47:46.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-15</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/域名/">域名</a></li></ul>
 	</div>
 
       
@@ -190,15 +205,11 @@ ga('send', 'pageview');
   
 <nav id="article-nav">
   
-    <a href="/2016/11/12/build-blog-with-hexo/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          博客搭建系列一：用hexo搭建个人博客
-        
-      </div>
-    </a>
   
+    <a href="/2016/11/12/build-blog-with-hexo/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">博客搭建系列一：用hexo搭建个人博客</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -230,7 +241,7 @@ ga('send', 'pageview');
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="first-article" data-title="beginning" data-url="http://weitianyao.com/2016/11/06/first-article/"></div>
+	<div class="ds-thread" data-thread-key="blog-bind-domain" data-title="博客搭建系列二：个人博客绑定自己域名" data-url="http://weitianyao.com/2016/11/15/blog-bind-domain/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
