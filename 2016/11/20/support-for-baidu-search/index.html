@@ -7,18 +7,20 @@
   <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://weitianyao.com">
-  <title>new page | Teal的博客</title>
+  <title>博客搭建系列三：如何使博客支持百度搜索 | Teal的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="待开发的新页面blabla….">
-<meta property="og:type" content="website">
-<meta property="og:title" content="new page">
-<meta property="og:url" content="http://weitianyao.com/page/index.html">
+  <meta name="description" content="&amp;emsp;&amp;emsp;我们写自己的博客，当然是想被更多的人看到，分享下自己的研究成果。这里，各种搜索引擎起着重要的作用。查网站的seo，大家可以去站长之家, 输入查询的网址即可。搜索引擎是靠爬虫去爬网站的上的内容，我们的博客是一个静态博客，内容托管在github上。打开终端，输入以下命令：1curl -A &quot;Mozilla/5.0 (compatible; Baiduspider/2.0; +h">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博客搭建系列三：如何使博客支持百度搜索">
+<meta property="og:url" content="http://weitianyao.com/2016/11/20/support-for-baidu-search/index.html">
 <meta property="og:site_name" content="Teal的博客">
-<meta property="og:description" content="待开发的新页面blabla….">
-<meta property="og:updated_time" content="2016-11-06T15:53:00.000Z">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;我们写自己的博客，当然是想被更多的人看到，分享下自己的研究成果。这里，各种搜索引擎起着重要的作用。查网站的seo，大家可以去站长之家, 输入查询的网址即可。搜索引擎是靠爬虫去爬网站的上的内容，我们的博客是一个静态博客，内容托管在github上。打开终端，输入以下命令：1curl -A &quot;Mozilla/5.0 (compatible; Baiduspider/2.0; +h">
+<meta property="og:image" content="http://weitianyao.com/assets/blogImg/curl_baidu.png">
+<meta property="og:updated_time" content="2016-11-20T16:43:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="new page">
-<meta name="twitter:description" content="待开发的新页面blabla….">
+<meta name="twitter:title" content="博客搭建系列三：如何使博客支持百度搜索">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;我们写自己的博客，当然是想被更多的人看到，分享下自己的研究成果。这里，各种搜索引擎起着重要的作用。查网站的seo，大家可以去站长之家, 输入查询的网址即可。搜索引擎是靠爬虫去爬网站的上的内容，我们的博客是一个静态博客，内容托管在github上。打开终端，输入以下命令：1curl -A &quot;Mozilla/5.0 (compatible; Baiduspider/2.0; +h">
+<meta name="twitter:image" content="http://weitianyao.com/assets/blogImg/curl_baidu.png">
   
   
     <link rel="icon" href="/assets/blogImg/favicon.ico">
@@ -144,7 +146,7 @@ ga('send', 'pageview');
 </nav>
 
       <div class="body-wrap">
-        <article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+        <article id="post-support-for-baidu-search" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -154,7 +156,7 @@ ga('send', 'pageview');
         
   
     <h1 class="article-title" itemprop="name">
-      new page
+      博客搭建系列三：如何使博客支持百度搜索
     </h1>
   
 
@@ -162,16 +164,28 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="待开发的新页面"><a href="#待开发的新页面" class="headerlink" title="待开发的新页面"></a>待开发的新页面</h3><p>blabla….</p>
+        <p>&emsp;&emsp;我们写自己的博客，当然是想被更多的人看到，分享下自己的研究成果。这里，各种搜索引擎起着重要的作用。查网站的seo，大家可以去<a href="http://seo.chinaz.com/" target="_blank" rel="external">站长之家</a>, 输入查询的网址即可。搜索引擎是靠爬虫去爬网站的上的内容，我们的博客是一个静态博客，内容托管在github上。打开终端，输入以下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -A <span class="string">"Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)"</span> https://github.com</div></pre></td></tr></table></figure></p>
+<p>我们会看到结果如下图：</p>
+<p><img src="/assets/blogImg/curl_baidu.png" alt="百度爬虫爬github" title="百度爬虫爬github"><br><a id="more"></a><br>&emsp;&emsp;github把百度爬虫屏蔽了，原因就是百度爬虫爬得太厉害，已经对很多Github用户造成了可用性的问题了。当然，大家也可以尝试下百度爬虫能不能爬到自己的网站内容，我想结果是一样的。我们可以再试试谷歌爬虫，输入以下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -A <span class="string">"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"</span> https://github.com</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;发现确实可以爬到网页的内容。也就是说，如果用谷歌搜索一些我们博客上的关键字是能搜索到我们文章的，但是百度是搜不到的。国内我们都知道，谷歌被墙了，所以用百度搜索还是有很大比例的。那么我们如何才能使百度搜索到呢？推荐大家一篇技术分析的文章<a href="http://jerryzou.com/posts/feasibility-of-allowing-baiduSpider-for-Github-Pages/" target="_blank" rel="external">解决 Github Pages 禁止百度爬虫的方法与可行性分析</a>。</p>
+<p>&emsp;&emsp;最好的解决办法还是要将我们博客的内容托管在百度爬虫可以爬的到的地方。最好不需要我们自己购买主机什么的，其实就是一个类似于github的代码托管平台。其实，国内还真有：<a href="https://coding.net/" target="_blank" rel="external">coding.net</a>，将gitcafe收购了，是国内最大的代码托管平台，界面也很清爽简洁。操作的步骤其实和github类似。我们这里就不详述了，大家可以参考这篇文章：<a href="http://bblove.me/2016/03/06/migrate-pages-from-gitcafe-to-coding/" target="_blank" rel="external">解决 Github Pages 禁止百度爬虫的方法2–从gitcafe迁移到coding.net</a>。</p>
+<p>&emsp;&emsp;不过注意下，mac的ssh key获取我们在系列文章一中说过；还有dns的设置大家参考我系列文章二中的设置。这里吐槽一下，github做了cname处理绑定域名后，访问原来提供的github.io域名，会提示301永久重定向到我现在的域名。但是coding.me的域名还是可以正常访问的。这个就有点不爽了。一样的内容，多个域名，会造成网站的分流，seo权重下降。但是服务器是人家的，我们也不能不能做什么。不过，我已经在coding的论坛上提了这个问题，人家技术人员说正在开发，说是下周就能出来。</p>
+<p>&emsp;&emsp;这样设置好以后，大家可以用上面的命令看能不能爬到。而且，每次用hexo部署后，我们的博客代码会同时部署到github和coding上，非常方便。这里建议大家将自己的博客目录创建一个github仓库，备份一下里边的source文件夹和_config.yml等配置文件。这样一来我们就不必非得用自己的电脑才能写博客；二来可以做博客内容备份。</p>
+<p>&emsp;&emsp;至此，博客搭建系列完毕！</p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/page/index.html" class="archive-article-date">
-  	<time datetime="2016-11-06T11:46:53.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-06</time>
+      <a href="/2016/11/20/support-for-baidu-search/" class="archive-article-date">
+  	<time datetime="2016-11-20T15:41:46.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-20</time>
 </a>
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coding-net/">coding.net</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/seo/">seo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
+	</div>
+
       
 
       <div class="clearfix"></div>
@@ -180,6 +194,16 @@ ga('send', 'pageview');
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2016/11/15/blog-bind-domain/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">博客搭建系列二：个人博客绑定自己域名</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 
 
@@ -208,7 +232,7 @@ ga('send', 'pageview');
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="undefined" data-title="new page" data-url="http://weitianyao.com/page/index.html"></div>
+	<div class="ds-thread" data-thread-key="support-for-baidu-search" data-title="博客搭建系列三：如何使博客支持百度搜索" data-url="http://weitianyao.com/2016/11/20/support-for-baidu-search/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -249,7 +273,7 @@ ga('send', 'pageview');
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

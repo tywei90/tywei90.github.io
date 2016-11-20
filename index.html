@@ -145,6 +145,60 @@ ga('send', 'pageview');
       <div class="body-wrap">
         
   
+    <article id="post-support-for-baidu-search" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/20/support-for-baidu-search/">博客搭建系列三：如何使博客支持百度搜索</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&emsp;&emsp;我们写自己的博客，当然是想被更多的人看到，分享下自己的研究成果。这里，各种搜索引擎起着重要的作用。查网站的seo，大家可以去<a href="http://seo.chinaz.com/">站长之家</a>, 输入查询的网址即可。搜索引擎是靠爬虫去爬网站的上的内容，我们的博客是一个静态博客，内容托管在github上。打开终端，输入以下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -A <span class="string">"Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)"</span> https://github.com</div></pre></td></tr></table></figure></p>
+<p>我们会看到结果如下图：</p>
+<p><img src="/assets/blogImg/curl_baidu.png" alt="百度爬虫爬github" title="百度爬虫爬github"><br>
+        <p class="article-more-link">
+          <a class="article-more-a"  href="/2016/11/20/support-for-baidu-search/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/20/support-for-baidu-search/" class="archive-article-date">
+  	<time datetime="2016-11-20T15:41:46.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-20</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coding-net/">coding.net</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/seo/">seo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-blog-bind-domain" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -164,6 +218,8 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>&emsp;&emsp;上一篇文章，我们详细说明了如何用hexo搭建个人博客，并且有了自己的博客地址。但是，有的同学可能觉得还不够牛逼。ok，那下面我分享下自己的博客是如何绑定自己申请的域名。</p>
+<h2 id="1、申请域名"><a href="#1、申请域名" class="headerlink" title="1、申请域名"></a>1、申请域名</h2><p>&emsp;&emsp;博客绑定域名，首先，你得有个域名。关于申请域名的网址有很多，国内有万网（被阿里云收购了），新网等。不过我不推荐在国内购买域名，需要备案等一系列手续非常麻烦。</p>
+<p>&emsp;&emsp;国外的域名注册商很多，用的比较多的有GoDaddy、namecheap、name.com等，至于选哪个，推荐大家一篇知乎上的文章 <a href="https://www.zhihu.com/question/19551906">https://www.zhihu.com/question/19551906</a> 没错，我是在namecheap上注册的，现在貌似没有优惠码了，不过他们家免费送Whois 隐私保护（Whois查询不到注册人），SSL证书不再免费，不过和域名一起购买只需再花2$，总共一年也就70几块钱。<br>
         <p class="article-more-link">
           <a class="article-more-a"  href="/2016/11/15/blog-bind-domain/#more">more >></a>
         </p>
@@ -215,7 +271,12 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&emsp;&emsp;本来不准备写的，因为网上一搜一大堆讲如何用hexo搭建博客的文章，但是，一来这个markdown语法以前没写过，想用来练练手。二来，网上文章有的写的比较早，一些配置和api可能已经变了。好的，啰嗦玩了，下面开始正文。<br>
+        <p>&emsp;&emsp;本来不准备写的，因为网上一搜一大堆讲如何用hexo搭建博客的文章，但是，一来这个markdown语法以前没写过，想用来练练手。二来，网上文章有的写的比较早，一些配置和api可能已经变了。好的，啰嗦玩了，下面开始正文。</p>
+<p>&emsp;&emsp;首先声明，本教程是针对mac的，不保证windows执行没有问题</p>
+<h2 id="1、配置环境"><a href="#1、配置环境" class="headerlink" title="1、配置环境"></a>1、配置环境</h2><blockquote>
+<p>安装node</p>
+</blockquote>
+<p>&emsp;&emsp;nodejs是服务器语言，借助google的chrome浏览器V8引擎，可以让前端js脚本运行在服务器端，前后端语言统一，不要太美~在这里，他主要是用来生成静态页面的。<a href="https://nodejs.org/en/">Node.js官网</a>下载相应平台的最新版本，一路安装即可。<br>
         <p class="article-more-link">
           <a class="article-more-a"  href="/2016/11/12/build-blog-with-hexo/#more">more >></a>
         </p>
@@ -360,7 +421,7 @@ ga('send', 'pageview');
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/博客/" style="font-size: 20px;">博客</a> <a href="/tags/域名/" style="font-size: 10px;">域名</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+    				<a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/seo/" style="font-size: 10px;">seo</a> <a href="/tags/博客/" style="font-size: 20px;">博客</a> <a href="/tags/域名/" style="font-size: 10px;">域名</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
     			</div>
     	</section>
     
