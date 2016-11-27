@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://weitianyao.com">
+  <title>数组多重筛选条件排序方法，外加一些简单常用的数组方法 | Teal的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="版权声明：本文为博主原创文章，未经博主允许不得转载！
+
+一、问题背景&amp;emsp;&amp;emsp;前端时间做项目遇到个数组多重筛选条件排序的问题，做的是一个展示用户拥有的红包和加息券页面，但是排序类似于下面这样：
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;a. 先按照截止时间倒序排；&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;b. 若截止时间一样，则按照获得时间倒序排；&amp;emsp;&amp;emsp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数组多重筛选条件排序方法，外加一些简单常用的数组方法">
+<meta property="og:url" content="http://weitianyao.com/2016/11/28/multi-sort-array/index.html">
+<meta property="og:site_name" content="Teal的博客">
+<meta property="og:description" content="版权声明：本文为博主原创文章，未经博主允许不得转载！
+
+一、问题背景&amp;emsp;&amp;emsp;前端时间做项目遇到个数组多重筛选条件排序的问题，做的是一个展示用户拥有的红包和加息券页面，但是排序类似于下面这样：
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;a. 先按照截止时间倒序排；&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;b. 若截止时间一样，则按照获得时间倒序排；&amp;emsp;&amp;emsp">
+<meta property="og:updated_time" content="2016-11-27T17:18:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数组多重筛选条件排序方法，外加一些简单常用的数组方法">
+<meta name="twitter:description" content="版权声明：本文为博主原创文章，未经博主允许不得转载！
+
+一、问题背景&amp;emsp;&amp;emsp;前端时间做项目遇到个数组多重筛选条件排序的问题，做的是一个展示用户拥有的红包和加息券页面，但是排序类似于下面这样：
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;a. 先按照截止时间倒序排；&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;b. 若截止时间一样，则按照获得时间倒序排；&amp;emsp;&amp;emsp">
+  
+  
+    <link rel="icon" href="/assets/blogImg/favicon.ico">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-87250582-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/assets/blogImg/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Teal</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">前端码农</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/tywei90" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="http://weibo.com/1762959307/profile" title="weibo">weibo</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/tywei90" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Teal</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/assets/blogImg/avatar.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Teal</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">前端码农</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/tywei90" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/1762959307/profile" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/tywei90" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-multi-sort-array" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数组多重筛选条件排序方法，外加一些简单常用的数组方法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><em>版权声明：本文为博主原创文章，未经博主允许不得转载！</em></p>
+</blockquote>
+<h2 id="一、问题背景"><a href="#一、问题背景" class="headerlink" title="一、问题背景"></a>一、问题背景</h2><p>&emsp;&emsp;前端时间做项目遇到个数组多重筛选条件排序的问题，做的是一个展示用户拥有的红包和加息券页面，但是排序类似于下面这样：</p>
+<p>&emsp;&emsp;&emsp;&emsp;a. 先按照截止时间倒序排；<br>&emsp;&emsp;&emsp;&emsp;b. 若截止时间一样，则按照获得时间倒序排；<br>&emsp;&emsp;&emsp;&emsp;c. 若获得时间一样时，红包&gt;加息券；<br>&emsp;&emsp;&emsp;&emsp;d. 剩余则随机。</p>
+<h2 id="二、解决方法1"><a href="#二、解决方法1" class="headerlink" title="二、解决方法1"></a>二、解决方法1</h2><p>&emsp;&emsp;我就琢磨着，这个可以做成一个组件。但是实现的方法其实也就是算法有好多种，我当时最先想到的是数组的自带排序方法sort,在参数function里边去处理排序，确实是可以做到先按照截止时间排序，并且可以提取出截止时间相同的元素组成的数组，但是再这样递归下去直到最后一个条件，然后再归纳数组合并，数据不太好处理，也不容易做成函数的递归。我捉摸着写出了下面的代码：</p>
+<a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sortDeepArr</span>(<span class="params">arr, sortTypes</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> len = sortTypes.length;</div><div class="line">    <span class="keyword">var</span> arrObj = &#123;&#125;; <span class="comment">//对象--&gt;对象--&gt;数组--&gt;对象</span></div><div class="line">    sortArr(arr, sortTypes[i]);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sortArr</span>(<span class="params">arr, sortType</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> itSelf = <span class="built_in">arguments</span>.callee;</div><div class="line">        arrObj[sortType.name] = &#123;&#125;;</div><div class="line">        arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">item1, item2</span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> (item1[sortType.name] === item2[sortType.name]) &#123;</div><div class="line">                <span class="keyword">if</span> (!arrObj[sortType.name][item1[sortType.name]]) &#123;</div><div class="line">                    arrObj[sortType.name][item1[sortType.name]] = [item1, item2]</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    arrObj[sortType.name][item1[sortType.name]].push(item2)</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">// console.log(arrObj)</span></div><div class="line">            <span class="keyword">return</span> (item1[sortType.name] - item2[sortType.name]) * ((sortType.positive || <span class="literal">true</span>) ? <span class="number">1</span> : <span class="number">-1</span>)</div><div class="line">        &#125;);</div><div class="line">        <span class="built_in">console</span>.log(arrObj)</div><div class="line">        i++</div><div class="line">        <span class="keyword">if</span> (<span class="built_in">JSON</span>.stringify(arrObj[sortType.name]) === <span class="string">"&#123;&#125;"</span> || i &gt;= len) &#123;</div><div class="line">            <span class="keyword">return</span></div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">var</span> nextSortType = sortTypes[i + <span class="number">1</span>];</div><div class="line">            $.each(arrObj[sortType.name], <span class="function"><span class="keyword">function</span>(<span class="params">key, val</span>) </span>&#123;</div><div class="line">                <span class="built_in">console</span>.log(i)</div><div class="line">                itSelf(val, nextSortType)</div><div class="line">            &#125;)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="三、解决方法2"><a href="#三、解决方法2" class="headerlink" title="三、解决方法2"></a>三、解决方法2</h2><p>&emsp;&emsp;不知道你们乱不乱啊，反正我是放弃了。。。既然这个走不通，我就想，我们能不能遍历所有条件一次选出一个或者几个元素，然后再从头遍历。就是说我们先从所有数组中选出截止时间离我们最近，如果只有一个，直接return，此次循环结束；如果有多个，再从中选出获得时间离我们最近的，如果只有一个，直接return，此次循环结束；如果有多个。。。一直到最后条件c后，return所有剩下的。这样第一轮就算结束了，然后我们将第一轮筛选出来的元素push进outArr里边，并从输入数组inArr中删除这些数组。接着再这样递归下去，直到inArr为空数组。</p>
+<p>&emsp;&emsp;这样思路是不是清爽多了？也比较好处理递归的问题。废话少说，附上代码如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div></pre></td><td class="code"><pre><div class="line">define([], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> sortArrMethods =&#123;</div><div class="line">        <span class="comment">// 删除数组指定项(index)</span></div><div class="line">        delArrByIndex: <span class="function"><span class="keyword">function</span> (<span class="params">arr, indexArr</span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> (arr.length === <span class="number">0</span>) &#123;</div><div class="line">                <span class="keyword">return</span> [];</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = indexArr.length; i &lt; len; i++) &#123;</div><div class="line">                arr.splice(indexArr[i] - i, <span class="number">1</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="comment">// 选出对象数组某个属性值最大的对象组成的数组</span></div><div class="line">        maxObjArr: <span class="function"><span class="keyword">function</span> (<span class="params">arr, sortType</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> maxData;</div><div class="line">            <span class="keyword">var</span> tmpArr = [];</div><div class="line">            <span class="keyword">var</span> outArr = [];</div><div class="line">            <span class="keyword">if</span> (arr.length === <span class="number">0</span>) &#123;</div><div class="line">                <span class="keyword">return</span> [];</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,len=arr.length; i&lt;len; i++)&#123;</div><div class="line">                tmpArr.push(arr[i][sortType]);</div><div class="line">            &#125;</div><div class="line">            maxData = maxNum(tmpArr);</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,len=arr.length; i&lt;len; i++)&#123;</div><div class="line">                <span class="keyword">if</span> (arr[i][sortType] === maxData) &#123;</div><div class="line">                    outArr.push(arr[i]);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> outArr</div><div class="line">            <span class="comment">// 选出数字组成的数组中最大值</span></div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">maxNum</span>(<span class="params">array</span>) </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="built_in">Math</span>.max.apply(&#123;&#125;, array)</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="comment">// 选出对象数组某个属性值最小的对象组成的数组</span></div><div class="line">        minObjArr: <span class="function"><span class="keyword">function</span> (<span class="params">arr, sortType</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> minData;</div><div class="line">            <span class="keyword">var</span> tmpArr = [];</div><div class="line">            <span class="keyword">var</span> outArr = [];</div><div class="line">            <span class="keyword">if</span> (arr.length === <span class="number">0</span>) &#123;</div><div class="line">                <span class="keyword">return</span> [];</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,len=arr.length; i&lt;len; i++)&#123;</div><div class="line">                tmpArr.push(arr[i][sortType]);</div><div class="line">            &#125;</div><div class="line">            minData = minNum(tmpArr);</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,len=arr.length; i&lt;len; i++)&#123;</div><div class="line">                <span class="keyword">if</span> (arr[i][sortType] === minData) &#123;</div><div class="line">                    outArr.push(arr[i]);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> outArr</div><div class="line">            <span class="comment">// 选出数字组成的数组中最小值</span></div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">minNum</span>(<span class="params">array</span>) </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="built_in">Math</span>.min.apply(&#123;&#125;, array)</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="comment">// 多重条件数组筛选方法</span></div><div class="line">        multiSortArr: <span class="function"><span class="keyword">function</span>(<span class="params">arr, sortLists</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> me = <span class="keyword">this</span>;</div><div class="line">            <span class="keyword">var</span> i = <span class="number">0</span>;</div><div class="line">            <span class="keyword">var</span> len = sortLists.length;</div><div class="line">            <span class="keyword">var</span> inArr = arr;</div><div class="line">            <span class="keyword">var</span> outArr = [];</div><div class="line">            <span class="keyword">if</span> (inArr.length === <span class="number">0</span>) &#123;</div><div class="line">                <span class="keyword">return</span> [];</div><div class="line">            &#125;</div><div class="line">            <span class="comment">// 严格模式下arguments.callee正确的使用姿势</span></div><div class="line">            <span class="keyword">var</span> sortArr = (<span class="function"><span class="keyword">function</span> <span class="title">sortArrWrap</span>(<span class="params">arr, sortList</span>) </span>&#123;</div><div class="line">                    <span class="keyword">var</span> filterArr = [];</div><div class="line">                    <span class="keyword">if</span> (arr.length === <span class="number">0</span>) &#123;</div><div class="line">                        <span class="keyword">return</span>;</div><div class="line">                    &#125;</div><div class="line">                    <span class="keyword">if</span> (sortList.positive === <span class="literal">false</span>) &#123;</div><div class="line">                        filterArr = me.maxObjArr(arr, sortList.name);</div><div class="line">                    &#125; <span class="keyword">else</span> &#123;</div><div class="line">                        filterArr = me.minObjArr(arr, sortList.name);</div><div class="line">                    &#125;</div><div class="line">                    <span class="keyword">if</span> (filterArr.length === <span class="number">1</span> || i &gt;= len - <span class="number">1</span>) &#123;</div><div class="line">                        outArr = outArr.concat(filterArr);</div><div class="line">                        <span class="comment">// 删除原来数组中的对应项</span></div><div class="line">                        <span class="keyword">for</span>(<span class="keyword">var</span> k=<span class="number">0</span>,len1=filterArr.length; k&lt;len1; k++)&#123;</div><div class="line">                            <span class="comment">// 每次查找到一个就删除原数组对应项，并更新stringifyInArr，防止有多个相同元素，导致删除错误</span></div><div class="line">                            <span class="keyword">var</span> stringifyInArr = [];</div><div class="line">                            <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>,len2=inArr.length; j&lt;len2; j++)&#123;</div><div class="line">                                stringifyInArr.push(<span class="built_in">JSON</span>.stringify(inArr[j]));</div><div class="line">                            &#125;</div><div class="line">                            <span class="keyword">var</span> delIndex = stringifyInArr.indexOf(<span class="built_in">JSON</span>.stringify(filterArr[k]));</div><div class="line">                            <span class="keyword">if</span> (delIndex !== <span class="number">-1</span>) &#123;</div><div class="line">                                me.delArrByIndex(inArr, [delIndex]);</div><div class="line">                            &#125;</div><div class="line">                        &#125;</div><div class="line">                    &#125; <span class="keyword">else</span> &#123;</div><div class="line">                        i++;</div><div class="line">                        sortArrWrap(filterArr, sortLists[i])</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">                <span class="comment">// 严格模式下arguments.callee正确的使用姿势</span></div><div class="line">            <span class="keyword">var</span> loopSortArr = (<span class="function"><span class="keyword">function</span> <span class="title">loopSortArrWrap</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                i = <span class="number">0</span>;</div><div class="line">                sortArr(inArr, sortLists[<span class="number">0</span>]);</div><div class="line">                <span class="keyword">if</span> (inArr.length === <span class="number">0</span>) &#123;</div><div class="line">                    <span class="keyword">return</span></div><div class="line">                &#125;</div><div class="line">                loopSortArrWrap();</div><div class="line">            &#125;)</div><div class="line">            loopSortArr();</div><div class="line">            <span class="keyword">return</span> outArr;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">return</span> sortArrMethods</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;去除了原来用jquery的<code>$.each()</code>方法遍历数组，改用for循环，解除依赖。这样脚本就是纯原生js写的，没有兼容性问题并且不依赖任何组件，大家放心使用。这里是用的AMD异步模块方案做的组件，没有依赖，输出一个对象，有delArrByIndex、maxObjArr、minObjArr和multiSortArr四个数组方法。</p>
+<h2 id="四、详细用法说明及测试"><a href="#四、详细用法说明及测试" class="headerlink" title="四、详细用法说明及测试"></a>四、详细用法说明及测试</h2><blockquote>
+<p>1、多重数组筛选方法：multiSortArr</p>
+</blockquote>
+<p>针对类似如下的情况：<br>    a. 先按照截止时间倒序排；<br>    b. 若截止时间一样，则按照获得时间倒序排；<br>    c. 若获得时间一样时，红包&gt;加息券；<br>    d. 剩余则随机。</p>
+<h3 id="for-test"><a href="#for-test" class="headerlink" title="for test"></a>for test</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [&#123;</div><div class="line">    <span class="attr">invalidTime</span>: <span class="number">100</span>,</div><div class="line">    <span class="attr">assignTime</span>: <span class="number">10</span>,</div><div class="line">    <span class="attr">type</span>: <span class="number">0</span></div><div class="line">&#125;,&#123;</div><div class="line">    <span class="attr">invalidTime</span>: <span class="number">110</span>,</div><div class="line">    <span class="attr">assignTime</span>: <span class="number">10</span>,</div><div class="line">    <span class="attr">type</span>: <span class="number">1</span></div><div class="line">&#125;,&#123;</div><div class="line">    <span class="attr">invalidTime</span>: <span class="number">110</span>,</div><div class="line">    <span class="attr">assignTime</span>: <span class="number">10</span>,</div><div class="line">    <span class="attr">type</span>: <span class="number">0</span></div><div class="line">&#125;,&#123;</div><div class="line">    <span class="attr">invalidTime</span>: <span class="number">110</span>,</div><div class="line">    <span class="attr">assignTime</span>: <span class="number">10</span>,</div><div class="line">    <span class="attr">type</span>: <span class="number">0</span></div><div class="line">&#125;,&#123;</div><div class="line">    <span class="attr">invalidTime</span>: <span class="number">110</span>,</div><div class="line">    <span class="attr">assignTime</span>: <span class="number">14</span>,</div><div class="line">    <span class="attr">type</span>: <span class="number">0</span></div><div class="line">&#125;,&#123;</div><div class="line">    <span class="attr">invalidTime</span>: <span class="number">92</span>,</div><div class="line">    <span class="attr">assignTime</span>: <span class="number">13</span>,</div><div class="line">    <span class="attr">type</span>: <span class="number">0</span></div><div class="line">&#125;,&#123;</div><div class="line">    <span class="attr">invalidTime</span>: <span class="number">92</span>,</div><div class="line">    <span class="attr">assignTime</span>: <span class="number">10</span>,</div><div class="line">    <span class="attr">type</span>: <span class="number">1</span></div><div class="line">&#125;,&#123;</div><div class="line">    <span class="attr">invalidTime</span>: <span class="number">92</span>,</div><div class="line">    <span class="attr">assignTime</span>: <span class="number">12</span>,</div><div class="line">    <span class="attr">type</span>: <span class="number">0</span></div><div class="line">&#125;]</div><div class="line"><span class="built_in">console</span>.table(arr)</div><div class="line"><span class="comment">// positive参数为true表示从小到大排序, false从大到小, 默认为true</span></div><div class="line"><span class="keyword">var</span> outArr = sortArr.multiSortArr(arr, [&#123;<span class="attr">name</span>: <span class="string">'invalidTime'</span>, <span class="attr">positive</span>: <span class="literal">true</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'assignTime'</span>, <span class="attr">positive</span>: <span class="literal">false</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">'type'</span>&#125;])</div><div class="line"><span class="built_in">console</span>.table(outArr)</div></pre></td></tr></table></figure>
+<p>&emsp;</p>
+<blockquote>
+<p>2、删除数组指定项(index)方法：delArrByIndex</p>
+</blockquote>
+<h3 id="for-test-1"><a href="#for-test-1" class="headerlink" title="for test"></a>for test</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr=[<span class="number">3</span>, <span class="number">2</span>, <span class="number">52</span>, <span class="number">5</span>, <span class="number">67</span>, <span class="number">356</span>, <span class="number">678</span>, <span class="number">234</span>, <span class="number">455</span>];</div><div class="line"><span class="keyword">var</span> outArr = sortArr.delArrByIndex(arr, [<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>]);</div><div class="line"><span class="comment">// outArr = [3, 2, 5, 356, 678, 455];</span></div></pre></td></tr></table></figure>
+<p>&emsp;</p>
+<blockquote>
+<p>3、选出对象数组某个属性值最大、最小的对象组成的数组方法：maxObjArr、minObjArr</p>
+</blockquote>
+<h3 id="for-test-2"><a href="#for-test-2" class="headerlink" title="for test"></a>for test</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [&#123;</div><div class="line">    <span class="attr">invalidTime</span>: <span class="number">82</span>,</div><div class="line">    <span class="attr">assignTime</span>: <span class="number">12</span>,</div><div class="line">    <span class="attr">type</span>: <span class="number">0</span></div><div class="line">&#125;,&#123;</div><div class="line">    <span class="attr">invalidTime</span>: <span class="number">110</span>,</div><div class="line">    <span class="attr">assignTime</span>: <span class="number">12</span>,</div><div class="line">    <span class="attr">type</span>: <span class="number">1</span></div><div class="line">&#125;,&#123;</div><div class="line">    <span class="attr">invalidTime</span>: <span class="number">90</span>,</div><div class="line">    <span class="attr">assignTime</span>: <span class="number">16</span>,</div><div class="line">    <span class="attr">type</span>: <span class="number">0</span></div><div class="line">&#125;]</div><div class="line"><span class="keyword">var</span> outArr1 = sortArr.maxObjArr(arr, <span class="string">'invalidTime'</span>);</div><div class="line"><span class="keyword">var</span> outArr2 = sortArr.minObjArr(arr, <span class="string">'assignTime'</span>);</div><div class="line"><span class="comment">// 输出</span></div><div class="line"><span class="comment">// outArr1 = [&#123;</span></div><div class="line"><span class="comment">//     invalidTime: 110,</span></div><div class="line"><span class="comment">//     assignTime: 10,</span></div><div class="line"><span class="comment">//     type: 1</span></div><div class="line"><span class="comment">// &#125;]</span></div><div class="line"><span class="comment">// outArr2 = [&#123;</span></div><div class="line"><span class="comment">//     invalidTime: 82,</span></div><div class="line"><span class="comment">//     assignTime: 12,</span></div><div class="line"><span class="comment">//     type: 0</span></div><div class="line"><span class="comment">// &#125;,&#123;</span></div><div class="line"><span class="comment">//     invalidTime: 110,</span></div><div class="line"><span class="comment">//     assignTime: 12,</span></div><div class="line"><span class="comment">//     type: 1</span></div><div class="line"><span class="comment">// &#125;]</span></div></pre></td></tr></table></figure>
+<h2 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h2><p>&emsp;&emsp;对比上面两种算法的实现，我个人觉得第一种，算法效率更高，因为一次原生数组排序方法就排查出所有第一个条件参数不一样的元素，如果此时没有重复的直接就return了。就算有重复的，后面也就是针对这些重复的进行排查，计算量也是比较小的。但是难就难在数据的存储方式，递归的实现以及最后数据的重组上，同时也比较耗内存，因为需要创建很多数组和对象（如果有比较多重复的话）。第二种，思路比较简单，实现起来方便。但是算法效率并不高，因为是相当于<code>n + (n-1) + (n-2) + ... + 1 = 1/2*n(n+1)</code>复杂度，这里就不算n里边还要循环的次数，因为都这个都一样。而第一种看概率，如果没有重复的就直接是1次，重复多了也是比第二种复杂度小。第二种比较耗cpu，因为计算次数多。</p>
+<p>&emsp;&emsp;经过测试目前没有发现问题，欢迎大家使用反馈~</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/28/multi-sort-array/" class="archive-article-date">
+  	<time datetime="2016-11-27T16:07:48.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-28</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多重条件排序/">多重条件排序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组常用方法/">数组常用方法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组排序/">数组排序</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/11/27/mobile-css-bugs-md/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">移动端bug总结和一些奇淫技巧</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="multi-sort-array" data-title="数组多重筛选条件排序方法，外加一些简单常用的数组方法" data-url="http://weitianyao.com/2016/11/28/multi-sort-array/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"tywei90"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Teal
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/seo/" style="font-size: 10px;">seo</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/博客/" style="font-size: 20px;">博客</a> <a href="/tags/域名/" style="font-size: 10px;">域名</a> <a href="/tags/多重条件排序/" style="font-size: 10px;">多重条件排序</a> <a href="/tags/奇淫技巧/" style="font-size: 10px;">奇淫技巧</a> <a href="/tags/数组常用方法/" style="font-size: 10px;">数组常用方法</a> <a href="/tags/数组排序/" style="font-size: 10px;">数组排序</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">Teal&lt;/br&gt;西电12级&lt;/br&gt;目前是一枚前端&lt;/br&gt;&lt;/br&gt;上海华为工作半年&lt;/br&gt;现就职于北京网易&lt;/br&gt;&lt;/br&gt;喜欢打篮球&lt;/br&gt;自认为技术还不错</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

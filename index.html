@@ -145,6 +145,119 @@ ga('send', 'pageview');
       <div class="body-wrap">
         
   
+    <article id="post-multi-sort-array" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/28/multi-sort-array/">数组多重筛选条件排序方法，外加一些简单常用的数组方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><em>版权声明：本文为博主原创文章，未经博主允许不得转载！</em></p>
+</blockquote>
+<h2 id="一、问题背景"><a href="#一、问题背景" class="headerlink" title="一、问题背景"></a>一、问题背景</h2><p>&emsp;&emsp;前端时间做项目遇到个数组多重筛选条件排序的问题，做的是一个展示用户拥有的红包和加息券页面，但是排序类似于下面这样：</p>
+<p>&emsp;&emsp;&emsp;&emsp;a. 先按照截止时间倒序排；<br>&emsp;&emsp;&emsp;&emsp;b. 若截止时间一样，则按照获得时间倒序排；<br>&emsp;&emsp;&emsp;&emsp;c. 若获得时间一样时，红包&gt;加息券；<br>&emsp;&emsp;&emsp;&emsp;d. 剩余则随机。</p>
+<h2 id="二、解决方法1"><a href="#二、解决方法1" class="headerlink" title="二、解决方法1"></a>二、解决方法1</h2><p>&emsp;&emsp;我就琢磨着，这个可以做成一个组件。但是实现的方法其实也就是算法有好多种，我当时最先想到的是数组的自带排序方法sort,在参数function里边去处理排序，确实是可以做到先按照截止时间排序，并且可以提取出截止时间相同的元素组成的数组，但是再这样递归下去直到最后一个条件，然后再归纳数组合并，数据不太好处理，也不容易做成函数的递归。我捉摸着写出了下面的代码：</p>
+        <p class="article-more-link">
+          <a class="article-more-a"  href="/2016/11/28/multi-sort-array/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/28/multi-sort-array/" class="archive-article-date">
+  	<time datetime="2016-11-27T16:07:48.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-28</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多重条件排序/">多重条件排序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组常用方法/">数组常用方法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组排序/">数组排序</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-mobile-css-bugs-md" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/27/mobile-css-bugs-md/">移动端bug总结和一些奇淫技巧</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&emsp;&emsp;这里总结下我平时自己遇到和在网上看到的一些移动端bug，希望对大家有用。</p>
+<h2 id="part1"><a href="#part1" class="headerlink" title="part1"></a>part1</h2><ol>
+<li>uc浏览器的flexbox兼容性bug，在父元素上应用flex属性时，直接子元素要<code>display: block</code>，否则没有效果。<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//兼容uc的 space-around</span></div><div class="line"><span class="selector-tag">div</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">justify-content</span>: space-around;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">48</span>/<span class="variable">@brem</span>;</div><div class="line">    <span class="attribute">color</span>: white;</div><div class="line">    <span class="selector-tag">span</span>&#123;</div><div class="line">        <span class="attribute">letter-spacing</span>: <span class="number">5</span>/<span class="variable">@brem</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//兼容UC浏览器</span></div><div class="line">    &gt;*&#123;</div><div class="line">        <span class="attribute">display</span>: block;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+        <p class="article-more-link">
+          <a class="article-more-a"  href="/2016/11/27/mobile-css-bugs-md/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/27/mobile-css-bugs-md/" class="archive-article-date">
+  	<time datetime="2016-11-27T15:25:15.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-27</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bug/">bug</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/兼容性/">兼容性</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/奇淫技巧/">奇淫技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-support-for-baidu-search" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -421,7 +534,7 @@ ga('send', 'pageview');
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/seo/" style="font-size: 10px;">seo</a> <a href="/tags/博客/" style="font-size: 20px;">博客</a> <a href="/tags/域名/" style="font-size: 10px;">域名</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+    				<a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/seo/" style="font-size: 10px;">seo</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/博客/" style="font-size: 20px;">博客</a> <a href="/tags/域名/" style="font-size: 10px;">域名</a> <a href="/tags/多重条件排序/" style="font-size: 10px;">多重条件排序</a> <a href="/tags/奇淫技巧/" style="font-size: 10px;">奇淫技巧</a> <a href="/tags/数组常用方法/" style="font-size: 10px;">数组常用方法</a> <a href="/tags/数组排序/" style="font-size: 10px;">数组排序</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
     			</div>
     	</section>
     

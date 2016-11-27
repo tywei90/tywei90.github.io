@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://weitianyao.com">
+  <title>移动端bug总结和一些奇淫技巧 | Teal的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;emsp;&amp;emsp;这里总结下我平时自己遇到和在网上看到的一些移动端bug，希望对大家有用。
+part1
+uc浏览器的flexbox兼容性bug，在父元素上应用flex属性时，直接子元素要display: block，否则没有效果。1234567891011121314//兼容uc的 space-arounddiv&amp;#123;    display: flex;    justify-cont">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端bug总结和一些奇淫技巧">
+<meta property="og:url" content="http://weitianyao.com/2016/11/27/mobile-css-bugs-md/index.html">
+<meta property="og:site_name" content="Teal的博客">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;这里总结下我平时自己遇到和在网上看到的一些移动端bug，希望对大家有用。
+part1
+uc浏览器的flexbox兼容性bug，在父元素上应用flex属性时，直接子元素要display: block，否则没有效果。1234567891011121314//兼容uc的 space-arounddiv&amp;#123;    display: flex;    justify-cont">
+<meta property="og:updated_time" content="2016-11-27T16:09:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端bug总结和一些奇淫技巧">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;这里总结下我平时自己遇到和在网上看到的一些移动端bug，希望对大家有用。
+part1
+uc浏览器的flexbox兼容性bug，在父元素上应用flex属性时，直接子元素要display: block，否则没有效果。1234567891011121314//兼容uc的 space-arounddiv&amp;#123;    display: flex;    justify-cont">
+  
+  
+    <link rel="icon" href="/assets/blogImg/favicon.ico">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-87250582-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/assets/blogImg/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Teal</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">前端码农</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/tywei90" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="http://weibo.com/1762959307/profile" title="weibo">weibo</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/tywei90" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Teal</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/assets/blogImg/avatar.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Teal</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">前端码农</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/tywei90" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/1762959307/profile" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/tywei90" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-mobile-css-bugs-md" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      移动端bug总结和一些奇淫技巧
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&emsp;&emsp;这里总结下我平时自己遇到和在网上看到的一些移动端bug，希望对大家有用。</p>
+<h2 id="part1"><a href="#part1" class="headerlink" title="part1"></a>part1</h2><ol>
+<li>uc浏览器的flexbox兼容性bug，在父元素上应用flex属性时，直接子元素要<code>display: block</code>，否则没有效果。<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//兼容uc的 space-around</span></div><div class="line"><span class="selector-tag">div</span>&#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">justify-content</span>: space-around;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">48</span>/<span class="variable">@brem</span>;</div><div class="line">    <span class="attribute">color</span>: white;</div><div class="line">    <span class="selector-tag">span</span>&#123;</div><div class="line">        <span class="attribute">letter-spacing</span>: <span class="number">5</span>/<span class="variable">@brem</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//兼容UC浏览器</span></div><div class="line">    &gt;*&#123;</div><div class="line">        <span class="attribute">display</span>: block;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<a id="more"></a>
+<ol>
+<li>android上的uc浏览器父元素<code>display:flex</code>，子元素margin:auto水平垂直居中没效果，加上<code>justify-content</code>和<code>align-items: center</code>即可，在低端android版本上需要再加上<code>text-align: center</code>才能水平居中。</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>wap端水平垂直居中<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">    <span class="attribute">display</span>: flex; </div><div class="line">    <span class="comment">//防止移动端bug</span></div><div class="line">    <span class="attribute">justify-content</span>: center;</div><div class="line">    <span class="attribute">align-items</span>: center;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">p</span> &#123;<span class="attribute">margin</span>: auto;&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li><p>苹果机click事件代理到body，document上会不触发 </p>
+</li>
+<li><p>pc端垂直居中<br>父元素<code>display: table</code> 并且显示定义高<br>子元素 <code>display: table-cell; vertical-align: middle</code></p>
+</li>
+<li><p>em是相对于元素自身的font-size计算的，可以在局部应用</p>
+</li>
+<li><p>ios手机和android上的uc浏览器等在页面滑动时会禁止一切js脚本，保存为一个状态A，滑动结束后才会触发scroll事件，从状态A开始。所以不能使用setTimeout进行倒计时。可以使用new Date计算时间差。</p>
+</li>
+<li><p><code>background-size</code>属性在IE9下不支持，背景图片默认是显示图片自身大小的</p>
+</li>
+<li><p><code>padding-top/padding-left</code>百分比都是相对元素本身的宽度</p>
+</li>
+<li><p>对于小图片可以用base64编码节省http请求<br><a href="http://www.cnblogs.com/coco1s/p/4375774.html" target="_blank" rel="external">http://www.cnblogs.com/coco1s/p/4375774.html</a></p>
+</li>
+</ol>
+<h2 id="part2"><a href="#part2" class="headerlink" title="part2"></a>part2</h2><ol>
+<li><p>最痛恨的是红米手机，ua返回iphone，需要结合platform判断，但是还不准确，导致需要ios和android区别对待的时候就坑了。</p>
+</li>
+<li><p>是fixed的问题。这个解决办法是尽量不要用，不过ios7及以下才会出现这个问题。某些情况下红米也会有这个问题。（最近刚刚遇到，已经被坑挂了）。</p>
+</li>
+<li><p>如果你想要使用css3的动画，那么一定要变着方式使用3d gpu加速的方式，不要试着left，height，width这样的元素进行变换了，android4.4以下版本卡死你。</p>
+</li>
+<li><p>ios全线点击会有300毫秒延迟，使用fastclick解决。这个插件最良心了。</p>
+</li>
+<li><p>web app像素眼设计会纠结你1px边框问题。解决办法有相应知乎大牛答过。</p>
+</li>
+<li><p>qq浏览，uc浏览以及ios的浏览器，滚动时不会触发scroll事件，但会触发touchmove。当停止滚动后会出发scroll。</p>
+</li>
+<li><p>滚动有iscroll插件，但是还是使用原生的比较好。</p>
+</li>
+<li><p>meta功能要用好，禁止缩放，缩放比例，屏蔽电话号码等功能很实用。（手机回答就不列举了）。</p>
+</li>
+<li><p>如果想要像手机淘宝那样的各个平台看起来展示效果一致，那么就使用rem来做单位。</p>
+</li>
+<li><p>-webkit-tap-highlight-color可以取消点击高亮。</p>
+</li>
+<li><p>localStorage在浏览器开启无痕模式下ios会抛异常，导致js中断。</p>
+</li>
+<li><p>一些情况下对非可点击元素监听click事件，ios下不会触发，css增加cursor:pointer就搞定了。当然想要干脆静止点击就是not-allowed。</p>
+</li>
+<li><p>android4.4以下版本，设置圆角属性需要在直接元素上，向父元素设置圆角并且指定overflow:hidden是不会生效的。</p>
+</li>
+</ol>
+<h2 id="part3"><a href="#part3" class="headerlink" title="part3"></a>part3</h2><ol>
+<li><p>图片大小最好是标注的2倍，这样可以保证在各类机型上的清晰</p>
+</li>
+<li><p>小图片最好拼合起来做成雪碧图，然后可以在TinyPNG – Compress PNG images while preserving transparency网站上压缩后再Base64嵌入html或css中。移动端要尽可能减少请求。不过太大的图片就不要base64了，性能会下降。一般以10k为界</p>
+</li>
+<li><p>rem方案相当复杂，存在非常多的兼容问题，以至于阿里这边还专门有一个Flexible库来解决这一系列问题。但是兼容性问题解决后开发会变得非常畅快。</p>
+</li>
+<li><p>图片比较多的页面务必要做懒加载（也就是滚动到图片的时候才加载）</p>
+</li>
+<li><p>border-radius不要随便乱用，在很多安卓机型上都会出现锯齿，非常丑</p>
+</li>
+<li><p>css动画请使用transform，而非直接控制width,height,margin，否则会造成大量的计算，性能堪忧。transfrom会把元素独立出来单独计算的。</p>
+</li>
+<li><p>如果动画比较多或者面积比较大，想提高性能的话可以用transform3D，就算不设置3d变换也会促使浏览器开启硬件加速</p>
+</li>
+<li><p>flex布局挺好，但有点兼容性问题，需要同时写好几个带前缀的私有属性才能保证大多数机型的适配。推荐使用autoprefixer，不过要记得自己定制兼容浏览器列表，不然会有很多-ms-,-o-这类的属性，在移动端是没有用的 </p>
+</li>
+</ol>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/27/mobile-css-bugs-md/" class="archive-article-date">
+  	<time datetime="2016-11-27T15:25:15.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-27</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bug/">bug</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/兼容性/">兼容性</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/奇淫技巧/">奇淫技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/11/28/multi-sort-array/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          数组多重筛选条件排序方法，外加一些简单常用的数组方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/20/support-for-baidu-search/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">博客搭建系列三：如何使博客支持百度搜索</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="mobile-css-bugs-md" data-title="移动端bug总结和一些奇淫技巧" data-url="http://weitianyao.com/2016/11/27/mobile-css-bugs-md/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"tywei90"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Teal
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/seo/" style="font-size: 10px;">seo</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/博客/" style="font-size: 20px;">博客</a> <a href="/tags/域名/" style="font-size: 10px;">域名</a> <a href="/tags/多重条件排序/" style="font-size: 10px;">多重条件排序</a> <a href="/tags/奇淫技巧/" style="font-size: 10px;">奇淫技巧</a> <a href="/tags/数组常用方法/" style="font-size: 10px;">数组常用方法</a> <a href="/tags/数组排序/" style="font-size: 10px;">数组排序</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">Teal&lt;/br&gt;西电12级&lt;/br&gt;目前是一枚前端&lt;/br&gt;&lt;/br&gt;上海华为工作半年&lt;/br&gt;现就职于北京网易&lt;/br&gt;&lt;/br&gt;喜欢打篮球&lt;/br&gt;自认为技术还不错</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
