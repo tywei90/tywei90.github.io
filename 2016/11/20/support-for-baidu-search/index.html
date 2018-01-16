@@ -14,15 +14,15 @@
 <meta property="og:url" content="https://www.wty90.com/2016/11/20/support-for-baidu-search/index.html">
 <meta property="og:site_name" content="Teal的博客">
 <meta property="og:description" content="我们写自己的博客，当然是想被更多的人看到，分享下自己的研究成果。这里，各种搜索引擎起着重要的作用。查网站的seo，大家可以去站长之家, 输入查询的网址即可。搜索引擎是靠爬虫去爬网站的上的内容，我们的博客是一个静态博客，内容托管在github上。打开终端，输入以下命令：1curl -A &quot;Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.ba">
-<meta property="og:image" content="https://www.wty90.com/assets/blogImg/curl_baidu.png">
-<meta property="og:updated_time" content="2018-01-12T07:10:16.000Z">
+<meta property="og:image" content="https://www.wty90.com/assets/img/curl_baidu.png">
+<meta property="og:updated_time" content="2018-01-16T04:46:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客搭建系列三：如何使博客支持百度搜索">
 <meta name="twitter:description" content="我们写自己的博客，当然是想被更多的人看到，分享下自己的研究成果。这里，各种搜索引擎起着重要的作用。查网站的seo，大家可以去站长之家, 输入查询的网址即可。搜索引擎是靠爬虫去爬网站的上的内容，我们的博客是一个静态博客，内容托管在github上。打开终端，输入以下命令：1curl -A &quot;Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.ba">
-<meta name="twitter:image" content="https://www.wty90.com/assets/blogImg/curl_baidu.png">
+<meta name="twitter:image" content="https://www.wty90.com/assets/img/curl_baidu.png">
   
   
-    <link rel="icon" href="/assets/blogImg/favicon.ico">
+    <link rel="icon" href="/assets/img/favicon.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.00e4d7.css">
   <style type="text/css">
@@ -69,7 +69,7 @@ var _hmt = _hmt || [];
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/assets/blogImg/avatar.png" class="js-avatar">
+			<img src="/assets/img/avatar.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Teal</a></h1>
@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/assets/blogImg/avatar.png" class="js-avatar">
+				<img src="/assets/img/avatar.png" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Teal</h1>
@@ -188,7 +188,7 @@ var _hmt = _hmt || [];
       
         <p>我们写自己的博客，当然是想被更多的人看到，分享下自己的研究成果。这里，各种搜索引擎起着重要的作用。查网站的seo，大家可以去<a href="http://seo.chinaz.com/" target="_blank" rel="external">站长之家</a>, 输入查询的网址即可。搜索引擎是靠爬虫去爬网站的上的内容，我们的博客是一个静态博客，内容托管在github上。打开终端，输入以下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -A <span class="string">"Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)"</span> https://github.com</div></pre></td></tr></table></figure></p>
 <p>我们会看到结果如下图：</p>
-<p><img src="/assets/blogImg/curl_baidu.png" alt="百度爬虫爬github" title="百度爬虫爬github"><br><a id="more"></a><br>github把百度爬虫屏蔽了，原因就是百度爬虫爬得太厉害，已经对很多Github用户造成了可用性的问题了。当然，大家也可以尝试下百度爬虫能不能爬到自己的网站内容，我想结果是一样的。我们可以再试试谷歌爬虫，输入以下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -A <span class="string">"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"</span> https://github.com</div></pre></td></tr></table></figure></p>
+<p><img src="/assets/img/curl_baidu.png" alt="百度爬虫爬github" title="百度爬虫爬github"><br><a id="more"></a><br>github把百度爬虫屏蔽了，原因就是百度爬虫爬得太厉害，已经对很多Github用户造成了可用性的问题了。当然，大家也可以尝试下百度爬虫能不能爬到自己的网站内容，我想结果是一样的。我们可以再试试谷歌爬虫，输入以下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -A <span class="string">"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"</span> https://github.com</div></pre></td></tr></table></figure></p>
 <p>发现确实可以爬到网页的内容。也就是说，如果用谷歌搜索一些我们博客上的关键字是能搜索到我们文章的，但是百度是搜不到的。国内我们都知道，谷歌被墙了，所以用百度搜索还是有很大比例的。那么我们如何才能使百度搜索到呢？推荐大家一篇技术分析的文章<a href="http://jerryzou.com/posts/feasibility-of-allowing-baiduSpider-for-Github-Pages/" target="_blank" rel="external">解决 Github Pages 禁止百度爬虫的方法与可行性分析</a>。</p>
 <p>最好的解决办法还是要将我们博客的内容托管在百度爬虫可以爬的到的地方。最好不需要我们自己购买主机什么的，其实就是一个类似于github的代码托管平台。其实，国内还真有：<a href="https://coding.net/" target="_blank" rel="external">coding.net</a>，将gitcafe收购了，是国内最大的代码托管平台，界面也很清爽简洁。操作的步骤其实和github类似。我们这里就不详述了，大家可以参考这篇文章：<a href="http://bblove.me/2016/03/06/migrate-pages-from-gitcafe-to-coding/" target="_blank" rel="external">解决 Github Pages 禁止百度爬虫的方法2–从gitcafe迁移到coding.net</a>。</p>
 <p>不过注意下，mac的ssh key获取我们在系列文章一中说过；还有dns的设置大家参考我系列文章二中的设置。这里吐槽一下，github做了cname处理绑定域名后，访问原来提供的github.io域名，会提示301永久重定向到我现在的域名。但是coding.me的域名还是可以正常访问的。这个就有点不爽了。一样的内容，多个域名，会造成网站的分流，seo权重下降。但是服务器是人家的，我们也不能不能做什么。不过，我已经在coding的论坛上提了这个问题，人家技术人员说正在开发，说是下周就能出来。</p>
@@ -211,13 +211,13 @@ var _hmt = _hmt || [];
                   <div class="reward-box">
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/blogImg/zfb.jpeg">
+                      <img class="reward-img" src="/assets/img/zfb.jpeg">
                       <span class="reward-type">支付宝</span>
                     </div>
                     
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/blogImg/wx.jpeg">
+                      <img class="reward-img" src="/assets/img/wx.jpeg">
                       <span class="reward-type">微信</span>
                     </div>
                     
@@ -478,6 +478,10 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
@@ -490,7 +494,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color1">ionic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">angular</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">phonegap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">混合APP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -526,26 +542,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">页面制作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">pagemaker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">immutable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数组排序</a>
               </li>
              
@@ -567,6 +563,26 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">coding.net</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">页面制作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">pagemaker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">immutable</a>
               </li>
             
             <div class="clearfix"></div>
