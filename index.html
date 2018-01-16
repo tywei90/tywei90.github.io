@@ -188,85 +188,11 @@ var _hmt = _hmt || [];
         <blockquote>
 <p><em>版权声明：本文为博主原创文章，未经博主允许不得转载！</em></p>
 </blockquote>
-<h1 id="Ionic实战"><a href="#Ionic实战" class="headerlink" title="Ionic实战"></a>Ionic实战</h1><p>这个项目做得比较早，当时是基于ionic1和angular1做的。做了四个tabs的app，首页模仿携程首页，第二页主要是phonegap调用手机核心功能，第三页模仿微信和qq聊天页，第四页模仿一般手机的表单设置页。同时还模仿知乎做了一个侧边栏页(账号：wty，密码：123456)。</p>
-<p>没有后台，纯前端展示，功能还比较多，调用系统的声音、震动和手机设备信息等。有二维码扫描功能，还做了类似qq消息可拖拽效果，上拉下拉刷新，轮播图组件。</p>
-<p>项目的工程目录如下图所示：</p>
-<p><img src="/assets/img/folders.png" alt="项目的工程目录"></p>
-<p>platforms是build之后生成的android和ios模拟器文件夹。</p>
-<p>resources是app在手机上的图标和开机画面等适配图。</p>
-<p>www是前端的工程目录，index.html是入口文件</p>
-<h4 id="js文件夹"><a href="#js文件夹" class="headerlink" title="js文件夹"></a>js文件夹</h4><ul>
-<li><p>app.js是app的系统配置和负责tab路由切换；</p>
-</li>
-<li><p>controllers.js是主要的逻辑模块</p>
-</li>
-<li><p>services.js负责模块间通信的</p>
-</li>
-</ul>
-<p>templates文件夹放置了所有tab的模板，用了很多ionic提供的组件，开发很方便</p>
-<p>当时做的ppt下载: <a href="/assets/ppt/ionic_app.ppt">2016.2.3技术分享ionic实战.ppt</a></p>
-<p>手机app下载：<br><a href="/assets/apk/ionic_app.apk">android下载</a><br><img src="/assets/img/apk.png" alt="apk二维码" title="apk二维码"></p>
-<h2 id="一些基本概念"><a href="#一些基本概念" class="headerlink" title="一些基本概念"></a>一些基本概念</h2><h4 id="Angularjs简介"><a href="#Angularjs简介" class="headerlink" title="Angularjs简介"></a>Angularjs简介</h4><p>Angularjs是一款优秀的前端 JS 框架，已用于 Google 的多款产品当中 如 Gmail、Maps、Calender 等。AngularJS有着诸多特性，最为核心的是：MVVM、模块化、自动化双向数据绑定、语义标签、依赖注入，等等。</p>
-<h4 id="Ionic简介"><a href="#Ionic简介" class="headerlink" title="Ionic简介"></a>Ionic简介</h4><p>Ionic是一个强大的 HTML5 应用程序开发框架，具有速度快，界面现代化、美观等特点。特别适合用于基于 Hybird 模式的 HTML5 移动应用程序开发。</p>
-<h4 id="Phonegap简介"><a href="#Phonegap简介" class="headerlink" title="Phonegap简介"></a>Phonegap简介</h4><p>Phonegap是一个用基于 HTML， CSS 和 JavaScript 的，创建移动跨平台移动应用程序的<br>快速开发平台。它使开发者能够手机的核心功能——包括地理定位，加速器，联系人，声音和振动等，此外PhoneGap 拥有丰富的插件，可以调用。</p>
-<h2 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h2><ul>
-<li>手机上app显示的图标、名称、开机画面</li>
-<li>注入依赖</li>
-<li>隐藏显示键盘</li>
-<li>hammer触屏手势插件配置</li>
-<li>菜单栏的位置、导航条文字位置、回退按钮图标等</li>
-<li>切换页面的过渡效果（bug）</li>
-<li>AngularUI Router</li>
-<li>services服务</li>
-</ul>
-<h2 id="tab-home"><a href="#tab-home" class="headerlink" title="tab-home"></a>tab-home</h2><ul>
-<li>幻灯指令 ion-slide-box</li>
-<li>触屏手势切换页面</li>
-<li>栅格系统</li>
-<li>触屏手势touch-bases和hammerjs</li>
-<li>ng-init、ng-click、 ng-src、 ng-repeat指令，双向数据绑定</li>
-<li>打开app内置的浏览器webview方法</li>
-<li>上拉刷新</li>
-</ul>
-<h2 id="tab-dash"><a href="#tab-dash" class="headerlink" title="tab-dash"></a>tab-dash</h2><ul>
-<li>phonegap功能的应用：二维码扫描、调用系统弹窗、震动铃声功能、获取设备信息</li>
-<li>ion-side-menus侧边栏功能</li>
-<li>ionic 动态组件 $ionicModal弹出登录界面</li>
-<li>ng-show、ng-model 双向数据绑定实现登录验证的实时监控</li>
-<li>ionic 动态组件 $ionicPopup弹出注销界面</li>
-<li>更换头像（访问手机摄像头、图库功能）</li>
-<li>切换主题颜色</li>
-</ul>
-<h2 id="tab-chats"><a href="#tab-chats" class="headerlink" title="tab-chats"></a>tab-chats</h2><ul>
-<li>删除按钮和重新排序按钮</li>
-<li>下拉刷新</li>
-<li>滑动显示分享编辑按钮</li>
-<li>长按显示动态组件$ionicActionSheet选项</li>
-<li>红色消息badge</li>
-</ul>
-<h2 id="tab-account"><a href="#tab-account" class="headerlink" title="tab-account"></a>tab-account</h2><ul>
-<li>ionic的表单应用</li>
-<li>“声音”选项被选中播放铃声</li>
-<li>“震动”选项被选中开始震动</li>
-<li>实现全选、全不选、反选的功能</li>
-<li>ionic动态组件$ionicPopup</li>
-<li>根据被选择数显示相应弹窗内容</li>
-</ul>
-<h4 id="演示如下："><a href="#演示如下：" class="headerlink" title="演示如下："></a>演示如下：</h4><p><img src="/assets/img/ionic_app.gif" alt="ionic实战动态图演示"></p>
-<h2 id="总-结"><a href="#总-结" class="headerlink" title="总 结"></a>总 结</h2><p>优点： 通过使用 web 技术开发 App，采用 Cordova/PhoneGap之类进行打包封装。优点是采用标准的web技术开发，避免了不同平台原生开发体系的学习，学习成本低， 上手快、 效率高，一次开发微信 wap app 全部搞定；</p>
-<p>缺点：app 在 android 平台性能上有一些损失， 但是相信硬件的发展会接近原生。</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
-<li><a href="http://bbs.phonegap100.com/thread-668-1-1.html" target="_blank" rel="external">http://bbs.phonegap100.com/thread-668-1-1.html</a></li>
-<li><a href="http://baike.baidu.com/view/9604951.htm" target="_blank" rel="external">http://baike.baidu.com/view/9604951.htm</a></li>
-<li><a href="http://www.angularjs.org/" target="_blank" rel="external">http://www.angularjs.org/</a></li>
-<li><a href="https://www.github.com/angular/" target="_blank" rel="external">https://www.github.com/angular/</a></li>
-<li><a href="http://www.angularjs.cn/" target="_blank" rel="external">http://www.angularjs.cn/</a></li>
-<li><a href="http://docs.angularjs.cn/api" target="_blank" rel="external">http://docs.angularjs.cn/api</a></li>
-<li><a href="http://www.ngnice.com/" target="_blank" rel="external">http://www.ngnice.com/</a></li>
-<li><a href="http://www.phonegap100.com" target="_blank" rel="external">http://www.phonegap100.com</a> (phonegap 中文网)</li>
-<li><a href="http://ionicframework.com/" target="_blank" rel="external">http://ionicframework.com/</a></li>
-</ol>
-
+<p>这个项目做得比较早，当时是基于ionic1和angular1做的。做了四个tabs的app，首页模仿携程首页，第二页主要是phonegap调用手机核心功能，第三页模仿微信和qq聊天页，第四页模仿一般手机的表单设置页。同时还模仿知乎做了一个侧边栏页(账号：wty，密码：123456)。</p>
+<p>没有后台，纯前端展示，功能还比较多，调用系统的声音、震动和手机设备信息等。有二维码扫描功能，还做了类似qq消息可拖拽效果，上拉下拉刷新，轮播图组件。<br>
+        
+          <a class="article-more-a" href="/2018/01/16/ionic-app/#more">more >></a>
+        
       
 
       
@@ -915,11 +841,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		
 		</ul>
@@ -1129,19 +1055,11 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">域名</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1158,6 +1076,14 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">混合APP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1181,18 +1107,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">移动端布局</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dpr</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">viewpoint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数组排序</a>
               </li>
              
@@ -1202,6 +1116,18 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">数组常用方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">移动端布局</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dpr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">viewpoint</a>
               </li>
              
               <li class="article-tag-list-item">
