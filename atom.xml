@@ -246,9 +246,9 @@
     </summary>
     
     
-      <category term="博客" scheme="https://www.wty90.com/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
       <category term="hexo" scheme="https://www.wty90.com/tags/hexo/"/>
+    
+      <category term="博客" scheme="https://www.wty90.com/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
@@ -257,20 +257,20 @@
     <link href="https://www.wty90.com/2016/11/06/first-article/"/>
     <id>https://www.wty90.com/2016/11/06/first-article/</id>
     <published>2016-11-06T11:41:20.000Z</published>
-    <updated>2018-01-25T08:15:00.000Z</updated>
+    <updated>2018-01-25T08:49:56.000Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="大家好，这是我的博客，用hexo搭建的，托管在github和-coding上。coding开始收费了，不然会有5s的广告中间页，很不爽。于是，果断买了阿里云的ECS，搭建自己的网站。"><a href="#大家好，这是我的博客，用hexo搭建的，托管在github和-coding上。coding开始收费了，不然会有5s的广告中间页，很不爽。于是，果断买了阿里云的ECS，搭建自己的网站。" class="headerlink" title="大家好，这是我的博客，用hexo搭建的，托管在github和 coding上。coding开始收费了，不然会有5s的广告中间页，很不爽。于是，果断买了阿里云的ECS，搭建自己的网站。"></a>大家好，这是我的博客，用hexo搭建的，托管在<a href="https://github.com/tywei90/tywei90.github.io" target="_blank" rel="external">github</a>和 <del><a href="https://coding.net/u/tywei/p/tywei/git" target="_blank" rel="external">coding</a>上</del>。coding开始收费了，不然会有5s的广告中间页，很不爽。于是，果断买了阿里云的ECS，搭建自己的网站。</h4><p>网上有很多可以写个人博客的网站，比如CSDN、博客园、简书等。我之前也在CSDN开通了自己的博客，但是感觉页面样式不太喜欢，简书还算可以的。不过，终究是别人的网站，还是想搞一个属于自己的博客。最好有是可以有自己的域名，这样更专(zhuang)业(bi)。而且要支持百度搜索。这就出现了我后面的一系列关于博客搭建的文章。<br><a id="more"></a></p><blockquote><p>这里会记录我平时遇到的一些技术问题的思考和总结，与大家共勉</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<p>大家好，这是我的博客，用hexo搭建的，托管在<a href="https://github.com/tywei90/tywei90.github.io" target="_blank" rel="external">github</a>和 <del><a href="https://coding.net/u/tywei/p/tywei/git" target="_blank" rel="external">coding</a>上</del>。coding开始收费了，不然会有5s的广告中间页，很不爽。于是，果断买了阿里云的ECS，搭建自己的网站。<br><a id="more"></a><br>网上有很多可以写个人博客的网站，比如CSDN、博客园、简书等。我之前也在CSDN开通了自己的博客，但是感觉页面样式不太喜欢，简书还算可以的。不过，终究是别人的网站，还是想搞一个属于自己的博客。最好有是可以有自己的域名，这样更专(zhuang)业(bi)。而且要支持百度搜索。这就出现了我后面的一系列关于博客搭建的文章。</p><p>这里会记录我平时遇到的一些技术问题的思考和总结，与大家共勉</p>]]></content>
     
     <summary type="html">
     
-      &lt;h4 id=&quot;大家好，这是我的博客，用hexo搭建的，托管在github和-coding上。coding开始收费了，不然会有5s的广告中间页，很不爽。于是，果断买了阿里云的ECS，搭建自己的网站。&quot;&gt;&lt;a href=&quot;#大家好，这是我的博客，用hexo搭建的，托管在github和-coding上。coding开始收费了，不然会有5s的广告中间页，很不爽。于是，果断买了阿里云的ECS，搭建自己的网站。&quot; class=&quot;headerlink&quot; title=&quot;大家好，这是我的博客，用hexo搭建的，托管在github和 coding上。coding开始收费了，不然会有5s的广告中间页，很不爽。于是，果断买了阿里云的ECS，搭建自己的网站。&quot;&gt;&lt;/a&gt;大家好，这是我的博客，用hexo搭建的，托管在&lt;a href=&quot;https://github.com/tywei90/tywei90.github.io&quot;&gt;github&lt;/a&gt;和 &lt;del&gt;&lt;a href=&quot;https://coding.net/u/tywei/p/tywei/git&quot;&gt;coding&lt;/a&gt;上&lt;/del&gt;。coding开始收费了，不然会有5s的广告中间页，很不爽。于是，果断买了阿里云的ECS，搭建自己的网站。&lt;/h4&gt;&lt;p&gt;网上有很多可以写个人博客的网站，比如CSDN、博客园、简书等。我之前也在CSDN开通了自己的博客，但是感觉页面样式不太喜欢，简书还算可以的。不过，终究是别人的网站，还是想搞一个属于自己的博客。最好有是可以有自己的域名，这样更专(zhuang)业(bi)。而且要支持百度搜索。这就出现了我后面的一系列关于博客搭建的文章。&lt;br&gt;
+      &lt;p&gt;大家好，这是我的博客，用hexo搭建的，托管在&lt;a href=&quot;https://github.com/tywei90/tywei90.github.io&quot;&gt;github&lt;/a&gt;和 &lt;del&gt;&lt;a href=&quot;https://coding.net/u/tywei/p/tywei/git&quot;&gt;coding&lt;/a&gt;上&lt;/del&gt;。coding开始收费了，不然会有5s的广告中间页，很不爽。于是，果断买了阿里云的ECS，搭建自己的网站。&lt;br&gt;
     
     </summary>
     
     
-      <category term="hexo" scheme="https://www.wty90.com/tags/hexo/"/>
-    
       <category term="随笔" scheme="https://www.wty90.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+      <category term="hexo" scheme="https://www.wty90.com/tags/hexo/"/>
     
   </entry>
   
