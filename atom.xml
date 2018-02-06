@@ -246,9 +246,9 @@
     </summary>
     
     
-      <category term="博客" scheme="https://www.wty90.com/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
       <category term="hexo" scheme="https://www.wty90.com/tags/hexo/"/>
+    
+      <category term="博客" scheme="https://www.wty90.com/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
@@ -268,9 +268,9 @@
     </summary>
     
     
-      <category term="随笔" scheme="https://www.wty90.com/tags/%E9%9A%8F%E7%AC%94/"/>
-    
       <category term="hexo" scheme="https://www.wty90.com/tags/hexo/"/>
+    
+      <category term="随笔" scheme="https://www.wty90.com/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
