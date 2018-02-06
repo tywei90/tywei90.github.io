@@ -264,7 +264,7 @@ var _hmt = _hmt || [];
 <p>用户能接触到的只有view层，就是组件里的各种输入框，单选多选等。用户与之发生交互，会发出action。React-Redux提供connect方法，用于从UI组件生成容器组件。connect方法接受两个参数：mapStateToProps和mapDispatchToProps，按照React-Redux的API，我们需要将Store.dispatch(action)写在mapDispatchToProps函数里边，但是为了书写方便和直观看出这个action是哪里发出的，我们没有遵循这个API，而是直接写在在代码中。</p>
 <p>然后，Store 自动调用 Reducer，并且传入两个参数：当前 State 和收到的 Action。 Reducer 会返回新的 State 。State 一旦有变化，Store 就会调用监听函数。在React-Redux规则里，我们需要提供mapStateToProps函数，建立一个从（外部的）state对象到（UI组件的）props对象的映射关系。mapStateToProps会订阅 Store，每当state更新的时候，就会自动执行，重新计算 UI 组件的参数，从而触发UI组件的重新渲染。大家可以看我们content.js组件的最后代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(</div><div class="line">    <span class="function"><span class="params">state</span> =&gt;</span> (&#123;</div><div class="line">        <span class="attr">unit</span>: state.get(<span class="string">'unit'</span>),</div><div class="line">    &#125;)</div><div class="line">)(Content);</div></pre></td></tr></table></figure></p>
 <p>connect方法可以省略mapStateToProps参数，那样的话，UI组件就不会订阅Store，就是说 Store 的更新不会引起 UI 组件的更新。像header和footer组件，就是纯UI组件。</p>
-<p>为什么我们的各个子组件都可以拿到state状态，那是因为我们在最顶层组件外面又包了一层<provider> 组件。入口文件index.js代码如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">"babel-polyfill"</span>;</div><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDom <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Router, Route, IndexRoute, browserHistory &#125; <span class="keyword">from</span> <span class="string">'react-router'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> <span class="string">'./index.scss'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> Store <span class="keyword">from</span> <span class="string">'./store'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./components/app'</span>;</div><div class="line"></div><div class="line">ReactDom.render(</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">Provider</span> <span class="attr">store</span>=<span class="string">&#123;Store&#125;</span>&gt;</span></span></div><div class="line">        <span class="tag">&lt;<span class="name">Router</span> <span class="attr">history</span>=<span class="string">&#123;browserHistory&#125;</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">"/"</span> <span class="attr">component</span>=<span class="string">&#123;App&#125;</span>&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;/<span class="name">Route</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">Router</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">Provider</span>&gt;</span>,</div><div class="line">    <span class="built_in">document</span>.querySelector(<span class="string">'#app'</span>)</div><div class="line">);</div></pre></td></tr></table></figure></provider></p>
+<p>为什么我们的各个子组件都可以拿到state状态，那是因为我们在最顶层组件外面又包了一层<provider> 组件。入口文件index.js代码如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">"babel-polyfill"</span>;</div><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDom <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Router, Route, IndexRoute, browserHistory &#125; <span class="keyword">from</span> <span class="string">'react-router'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> <span class="string">'./index.scss'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> Store <span class="keyword">from</span> <span class="string">'./store'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./components/app'</span>;</div><div class="line"></div><div class="line">ReactDom.render(</div><div class="line">    &lt;Provider store=&#123;Store&#125;&gt;</div><div class="line">        &lt;Router history=&#123;browserHistory&#125;&gt;</div><div class="line">            &lt;Route path="/" component=&#123;App&#125;&gt;</div><div class="line"></div><div class="line">            &lt;/Route&gt;</div><div class="line">        &lt;/Router&gt;</div><div class="line">    &lt;/Provider&gt;,</div><div class="line">    <span class="built_in">document</span>.querySelector(<span class="string">'#app'</span>)</div><div class="line">);</div></pre></td></tr></table></figure></provider></p>
 <p>我们的react-router采用的是browserHistory，使用的是HTML5的History API，路由切换交给后台。</p>
 <h2 id="五、兼容性和打包优化"><a href="#五、兼容性和打包优化" class="headerlink" title="五、兼容性和打包优化"></a>五、兼容性和打包优化</h2><h3 id="1-兼容性"><a href="#1-兼容性" class="headerlink" title="1. 兼容性"></a>1. 兼容性</h3><p>为了让页面更好的兼容IE9+和android浏览器，因为项目使用了babel，所以采用<a href="https://babeljs.io/docs/usage/polyfill/" target="_blank" rel="external">babel-polyfill</a>和<a href="https://babeljs.io/docs/plugins/transform-runtime/" target="_blank" rel="external">babel-plugin-transform-runtime</a>插件。</p>
 <h3 id="2-Antd按需加载"><a href="#2-Antd按需加载" class="headerlink" title="2. Antd按需加载"></a>2. Antd按需加载</h3><p>Antd完整包特别大，有10M多。而我们项目里主要是采用了弹窗组件，所以我们应该采用按需加载。只需在.babelrc文件里配置一下即可，详见<a href="https://ant.design/docs/react/introduce-cn#%E6%8C%89%E9%9C%80%E5%8A%A0%E8%BD%BD" target="_blank" rel="external">官方说明</a>。  </p>
@@ -549,14 +549,6 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
@@ -574,6 +566,22 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">混合APP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">页面制作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,14 +606,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">页面制作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
