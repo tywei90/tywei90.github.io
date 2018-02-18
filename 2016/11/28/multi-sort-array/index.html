@@ -6,39 +6,39 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.wty90.com">
-  <title>数组多重筛选条件排序方法，外加一些简单常用的数组方法 | Teal的博客</title>
+  <title>数组多重筛选条件排序方法 | Teal的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、问题背景前端时间做项目遇到个数组多重筛选条件排序的问题，做的是一个展示用户拥有的红包和加息券页面，但是排序类似于下面这样：
+  <meta name="description" content="Update 
+此项目已经抽离出来，做成两个npm包：arr-sort, arr-del。功能增强，支持nested对象属性并支持传入比较函数功能。
+一、问题背景前端时间做项目遇到个数组多重筛选条件排序的问题，做的是一个展示用户拥有的红包和加息券页面，但是排序类似于下面这样：
 
 先按照截止时间倒序排；
 若截止时间一样，则按照获得时间倒序排；
 若获得时间一样时，红包&amp;gt;加息券；
-剩余则随机。
-
-欢迎大家star学习交流：github地址">
+剩余则随机。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数组多重筛选条件排序方法，外加一些简单常用的数组方法">
+<meta property="og:title" content="数组多重筛选条件排序方法">
 <meta property="og:url" content="https://www.wty90.com/2016/11/28/multi-sort-array/index.html">
 <meta property="og:site_name" content="Teal的博客">
-<meta property="og:description" content="一、问题背景前端时间做项目遇到个数组多重筛选条件排序的问题，做的是一个展示用户拥有的红包和加息券页面，但是排序类似于下面这样：
+<meta property="og:description" content="Update 
+此项目已经抽离出来，做成两个npm包：arr-sort, arr-del。功能增强，支持nested对象属性并支持传入比较函数功能。
+一、问题背景前端时间做项目遇到个数组多重筛选条件排序的问题，做的是一个展示用户拥有的红包和加息券页面，但是排序类似于下面这样：
 
 先按照截止时间倒序排；
 若截止时间一样，则按照获得时间倒序排；
 若获得时间一样时，红包&amp;gt;加息券；
-剩余则随机。
-
-欢迎大家star学习交流：github地址">
-<meta property="og:updated_time" content="2018-01-25T08:10:31.000Z">
+剩余则随机。">
+<meta property="og:updated_time" content="2018-02-18T15:23:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数组多重筛选条件排序方法，外加一些简单常用的数组方法">
-<meta name="twitter:description" content="一、问题背景前端时间做项目遇到个数组多重筛选条件排序的问题，做的是一个展示用户拥有的红包和加息券页面，但是排序类似于下面这样：
+<meta name="twitter:title" content="数组多重筛选条件排序方法">
+<meta name="twitter:description" content="Update 
+此项目已经抽离出来，做成两个npm包：arr-sort, arr-del。功能增强，支持nested对象属性并支持传入比较函数功能。
+一、问题背景前端时间做项目遇到个数组多重筛选条件排序的问题，做的是一个展示用户拥有的红包和加息券页面，但是排序类似于下面这样：
 
 先按照截止时间倒序排；
 若截止时间一样，则按照获得时间倒序排；
 若获得时间一样时，红包&amp;gt;加息券；
-剩余则随机。
-
-欢迎大家star学习交流：github地址">
+剩余则随机。">
   
     <link rel="alternative" href="/atom.xml" title="Teal的博客" type="application/atom+xml">
   
@@ -204,7 +204,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      数组多重筛选条件排序方法，外加一些简单常用的数组方法
+      数组多重筛选条件排序方法
     </h1>
   
 
@@ -217,7 +217,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、问题背景"><a href="#一、问题背景" class="headerlink" title="一、问题背景"></a>一、问题背景</h2><p>前端时间做项目遇到个数组多重筛选条件排序的问题，做的是一个展示用户拥有的红包和加息券页面，但是排序类似于下面这样：</p>
+        <p><strong> Update </strong></p>
+<p>此项目已经抽离出来，做成两个npm包：<a href="https://github.com/tywei90/arr-sort" target="_blank" rel="external">arr-sort</a>, <a href="https://github.com/tywei90/arr-del" target="_blank" rel="external">arr-del</a>。功能增强，支持nested对象属性并支持传入比较函数功能。</p>
+<h2 id="一、问题背景"><a href="#一、问题背景" class="headerlink" title="一、问题背景"></a>一、问题背景</h2><p>前端时间做项目遇到个数组多重筛选条件排序的问题，做的是一个展示用户拥有的红包和加息券页面，但是排序类似于下面这样：</p>
 <ol>
 <li>先按照截止时间倒序排；</li>
 <li>若截止时间一样，则按照获得时间倒序排；</li>
@@ -528,10 +530,6 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -544,11 +542,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">移动端布局</a>
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color1">github自动提交</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -564,6 +562,26 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">移动端布局</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">移动端</a>
               </li>
              
@@ -576,19 +594,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">立马理财</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color4">cms</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,7 +606,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cms</a>
+                <a href="javascript:void(0)" class="js-tag color5">立马理财</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
             
             <div class="clearfix"></div>

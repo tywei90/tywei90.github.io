@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.wty90.com">
-  <title>NodeJS爬虫—&gt;立马理财 | Teal的博客</title>
+  <title>NodeJS爬虫——立马理财 | Teal的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="其实在早之前，就做过立马理财的销售额统计，只不过是用前端js写的，需要在首页的console调试面板里粘贴一段代码执行，点击这里。主要是通过定时爬取https://www.lmlc.com/s/web/home/user_buying异步接口来获取数据。然后通过一定的排重算法来获取最终的数据。但是这样做有以下缺点：  
 
 代码只能在浏览器窗口下运行，关闭浏览器或者电脑就失效了
 只能爬取一个页面的数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NodeJS爬虫—>立马理财">
+<meta property="og:title" content="NodeJS爬虫——立马理财">
 <meta property="og:url" content="https://www.wty90.com/2018/01/17/lmlc-spider/index.html">
 <meta property="og:site_name" content="Teal的博客">
 <meta property="og:description" content="其实在早之前，就做过立马理财的销售额统计，只不过是用前端js写的，需要在首页的console调试面板里粘贴一段代码执行，点击这里。主要是通过定时爬取https://www.lmlc.com/s/web/home/user_buying异步接口来获取数据。然后通过一定的排重算法来获取最终的数据。但是这样做有以下缺点：  
@@ -22,9 +22,9 @@
 只能爬取一个页面的数">
 <meta property="og:image" content="https://www.wty90.com/assets/img/product.png">
 <meta property="og:image" content="https://www.wty90.com/assets/img/records.png">
-<meta property="og:updated_time" content="2018-01-18T08:05:29.000Z">
+<meta property="og:updated_time" content="2018-02-18T15:24:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NodeJS爬虫—>立马理财">
+<meta name="twitter:title" content="NodeJS爬虫——立马理财">
 <meta name="twitter:description" content="其实在早之前，就做过立马理财的销售额统计，只不过是用前端js写的，需要在首页的console调试面板里粘贴一段代码执行，点击这里。主要是通过定时爬取https://www.lmlc.com/s/web/home/user_buying异步接口来获取数据。然后通过一定的排重算法来获取最终的数据。但是这样做有以下缺点：  
 
 代码只能在浏览器窗口下运行，关闭浏览器或者电脑就失效了
@@ -195,7 +195,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      NodeJS爬虫—&gt;立马理财
+      NodeJS爬虫——立马理财
     </h1>
   
 
@@ -227,14 +227,9 @@ var _hmt = _hmt || [];
 <h2 id="二、爬虫常用库介绍"><a href="#二、爬虫常用库介绍" class="headerlink" title="二、爬虫常用库介绍"></a>二、爬虫常用库介绍</h2><h3 id="1-Superagent"><a href="#1-Superagent" class="headerlink" title="1. Superagent"></a>1. <a href="http://visionmedia.github.io/superagent/" target="_blank" rel="external">Superagent</a></h3><p>Superagent是个轻量的的http方面的库，是nodejs里一个非常方便的客户端请求代理模块，当我们需要进行get、post、head等网络请求时，尝试下它吧。</p>
 <h3 id="2-Cheerio"><a href="#2-Cheerio" class="headerlink" title="2. Cheerio"></a>2. <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="external">Cheerio</a></h3><p>Cheerio大家可以理解成一个 Node.js 版的 jquery，用来从网页中以 css selector 取数据，使用方式跟 jquery 一模一样。</p>
 <h3 id="3-Async"><a href="#3-Async" class="headerlink" title="3. Async"></a>3. <a href="https://github.com/caolan/async" target="_blank" rel="external">Async</a></h3><p>Async是一个流程控制工具包，提供了直接而强大的异步功能mapLimit(arr, limit, iterator, callback)，我们主要用到这个方法，大家可以去看看官网的API。</p>
-<h3 id="4-SortArr"><a href="#4-SortArr" class="headerlink" title="4. SortArr"></a>4. <a href="https://github.com/tywei90/selfwork/tree/master/sortArr" target="_blank" rel="external">SortArr</a></h3><p>SortArr是我自己写的一个数组常用方法的工具。有如下方法：</p>
-<ul>
-<li>delArrByIndex 删除数组指定项(index Array)</li>
-<li>maxObjArr 选出对象数组某个属性值最大的对象组成的数组</li>
-<li>minObjArr 选出对象数组某个属性值最小的对象组成的数组</li>
-<li>multiSortArr 多重条件数组筛选方法</li>
-</ul>
-<h2 id="三、页面结构分析"><a href="#三、页面结构分析" class="headerlink" title="三、页面结构分析"></a>三、页面结构分析</h2><p>先屡一下我们爬取的思路。立马理财线上的产品主要是定期和立马金库(最新上线的光大银行理财产品因为手续比较麻烦，而且起投金额高，基本没人买，这里不统计)。定期我们可以爬取<a href="https://www.lmlc.com/web/product/index.html" target="_blank" rel="external">理财页</a>的ajax接口：<a href="https://www.lmlc.com/web/product/product_list?pageSize=10&amp;pageNo=1&amp;type=0" target="_blank" rel="external"><code>https://www.lmlc.com/web/product/product_list?pageSize=10&amp;pageNo=1&amp;type=0</code></a>。数据如下图所示：</p>
+<h3 id="4-arr-del"><a href="#4-arr-del" class="headerlink" title="4. arr-del"></a>4. <a href="https://github.com/tywei90/arr-del" target="_blank" rel="external">arr-del</a></h3><p>arr-del是我自己写的一个删除数组元素方法的工具。可以通过传入待删除数组元素index组成的数组进行一次性删除。</p>
+<h3 id="5-arr-sort"><a href="#5-arr-sort" class="headerlink" title="5. arr-sort"></a>5. <a href="https://github.com/tywei90/arr-sort" target="_blank" rel="external">arr-sort</a></h3><p>arr-sort是我自己写的一个数组排序方法的工具。可以根据一个或者多个属性进行排序，支持嵌套的属性。而且可以再每个条件中指定排序的方向，并支持传入比较函数。</p>
+<h2 id="三、页面结构分析"><a href="#三、页面结构分析" class="headerlink" title="三、页面结构分析"></a>三、页面结构分析</h2><p>先屡一下我们爬取的思路。立马理财线上的产品主要是定期和立马金库(最新上线的光大银行理财产品因为手续比较麻烦，而且起投金额高，基本没人买，这里不统计)。定期我们可以爬取<a href="https://www.lmlc.com/web/product/index.html" target="_blank" rel="external">理财页</a>的ajax接口：<a href="https://www.lmlc.com/web/product/product_list?pageSize=10&amp;pageNo=1&amp;type=0" target="_blank" rel="external"><code>https://www.lmlc.com/web/product/product_list?pageSize=10&amp;pageNo=1&amp;type=0</code></a>。（update: 定期近期没货，可能看不到数据）数据如下图所示：</p>
 <p><img src="/assets/img/product.png" alt="理财页ajax接口数据" title="理财页ajax接口数据"></p>
 <p>这里包含了所有线上正在销售的定期产品，ajax数据只有产品本身相关的信息，比如产品id、筹集金额、当前销售额、年化收益率、投资天数等，并没有产品被哪些用户购买的信息。所以我们需要带着id参数去它的产品详情页爬取，比如<a href="https://www.lmlc.com/web/product/product_detail.html?id=201801151830PD84123651" target="_blank" rel="external">立马聚财-12月期HLB01239511</a>。详情页有一栏投资记录，里边包含了我们需要的信息，如下图所示：</p>
 <p><img src="/assets/img/records.png" alt="详情页投资记录" title="详情页投资记录"></p>
@@ -433,7 +428,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、爬虫流程"><span class="toc-number">1.</span> <span class="toc-text">一、爬虫流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-结构分析"><span class="toc-number">1.1.</span> <span class="toc-text">1. 结构分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-数据抓取"><span class="toc-number">1.2.</span> <span class="toc-text">2. 数据抓取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-数据存储"><span class="toc-number">1.3.</span> <span class="toc-text">3. 数据存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-数据分析"><span class="toc-number">1.4.</span> <span class="toc-text">4. 数据分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-结果展示"><span class="toc-number">1.5.</span> <span class="toc-text">5. 结果展示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、爬虫常用库介绍"><span class="toc-number">2.</span> <span class="toc-text">二、爬虫常用库介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Superagent"><span class="toc-number">2.1.</span> <span class="toc-text">1. Superagent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Cheerio"><span class="toc-number">2.2.</span> <span class="toc-text">2. Cheerio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Async"><span class="toc-number">2.3.</span> <span class="toc-text">3. Async</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-SortArr"><span class="toc-number">2.4.</span> <span class="toc-text">4. SortArr</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、页面结构分析"><span class="toc-number">3.</span> <span class="toc-text">三、页面结构分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、爬虫代码分析"><span class="toc-number">4.</span> <span class="toc-text">四、爬虫代码分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-获取登录cookie"><span class="toc-number">4.1.</span> <span class="toc-text">1. 获取登录cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-理财页ajax的爬取"><span class="toc-number">4.2.</span> <span class="toc-text">2. 理财页ajax的爬取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-产品详情页的爬取"><span class="toc-number">4.3.</span> <span class="toc-text">3. 产品详情页的爬取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-首页用户ajax爬取"><span class="toc-number">4.4.</span> <span class="toc-text">4. 首页用户ajax爬取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-零点整合数据"><span class="toc-number">4.5.</span> <span class="toc-text">5. 零点整合数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、前端展示"><span class="toc-number">5.</span> <span class="toc-text">五、前端展示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、整体思路"><span class="toc-number">5.1.</span> <span class="toc-text">1、整体思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、前端用到的组件介绍"><span class="toc-number">5.2.</span> <span class="toc-text">2、前端用到的组件介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、gulp配置"><span class="toc-number">5.3.</span> <span class="toc-text">3、gulp配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">6.</span> <span class="toc-text">后记</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、爬虫流程"><span class="toc-number">1.</span> <span class="toc-text">一、爬虫流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-结构分析"><span class="toc-number">1.1.</span> <span class="toc-text">1. 结构分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-数据抓取"><span class="toc-number">1.2.</span> <span class="toc-text">2. 数据抓取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-数据存储"><span class="toc-number">1.3.</span> <span class="toc-text">3. 数据存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-数据分析"><span class="toc-number">1.4.</span> <span class="toc-text">4. 数据分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-结果展示"><span class="toc-number">1.5.</span> <span class="toc-text">5. 结果展示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、爬虫常用库介绍"><span class="toc-number">2.</span> <span class="toc-text">二、爬虫常用库介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Superagent"><span class="toc-number">2.1.</span> <span class="toc-text">1. Superagent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Cheerio"><span class="toc-number">2.2.</span> <span class="toc-text">2. Cheerio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Async"><span class="toc-number">2.3.</span> <span class="toc-text">3. Async</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-arr-del"><span class="toc-number">2.4.</span> <span class="toc-text">4. arr-del</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-arr-sort"><span class="toc-number">2.5.</span> <span class="toc-text">5. arr-sort</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、页面结构分析"><span class="toc-number">3.</span> <span class="toc-text">三、页面结构分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、爬虫代码分析"><span class="toc-number">4.</span> <span class="toc-text">四、爬虫代码分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-获取登录cookie"><span class="toc-number">4.1.</span> <span class="toc-text">1. 获取登录cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-理财页ajax的爬取"><span class="toc-number">4.2.</span> <span class="toc-text">2. 理财页ajax的爬取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-产品详情页的爬取"><span class="toc-number">4.3.</span> <span class="toc-text">3. 产品详情页的爬取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-首页用户ajax爬取"><span class="toc-number">4.4.</span> <span class="toc-text">4. 首页用户ajax爬取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-零点整合数据"><span class="toc-number">4.5.</span> <span class="toc-text">5. 零点整合数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、前端展示"><span class="toc-number">5.</span> <span class="toc-text">五、前端展示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、整体思路"><span class="toc-number">5.1.</span> <span class="toc-text">1、整体思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、前端用到的组件介绍"><span class="toc-number">5.2.</span> <span class="toc-text">2、前端用到的组件介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、gulp配置"><span class="toc-number">5.3.</span> <span class="toc-text">3、gulp配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">6.</span> <span class="toc-text">后记</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -553,10 +548,6 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -569,11 +560,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">移动端布局</a>
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color1">github自动提交</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -589,6 +580,26 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">移动端布局</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">移动端</a>
               </li>
              
@@ -601,19 +612,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">立马理财</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color4">cms</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -625,7 +624,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cms</a>
+                <a href="javascript:void(0)" class="js-tag color5">立马理财</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
             
             <div class="clearfix"></div>
