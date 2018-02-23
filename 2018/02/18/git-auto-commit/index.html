@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.wty90.com">
-  <title>自动刷github提交记录 | Teal的博客</title>
+  <title>手把手教你刷github提交记录 | Teal的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前言进入自己github主页会看到自己的提交记录，如果某天没有提交记录，那天的小方框就显示灰色。强迫症的我，每次进来看着就感觉不爽，想着自己每天记得提交点东西，争取像阮一峰大神一样，每天都有提交记录。  
 
 但是，毕竟是人，哪天忙了就会忘记提交，所以想着能不能实现在自己阿里云服务器(linux系统)上，设置cron，定制下git命令，实现每天定点自动提交。
 欢迎大家star学习交流：github地">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自动刷github提交记录">
+<meta property="og:title" content="手把手教你刷github提交记录">
 <meta property="og:url" content="https://www.wty90.com/2018/02/18/git-auto-commit/index.html">
 <meta property="og:site_name" content="Teal的博客">
 <meta property="og:description" content="前言进入自己github主页会看到自己的提交记录，如果某天没有提交记录，那天的小方框就显示灰色。强迫症的我，每次进来看着就感觉不爽，想着自己每天记得提交点东西，争取像阮一峰大神一样，每天都有提交记录。  
@@ -23,9 +23,11 @@
 <meta property="og:image" content="https://www.wty90.com/assets/img/git-commits.png">
 <meta property="og:image" content="https://www.wty90.com/assets/img/https.png">
 <meta property="og:image" content="https://www.wty90.com/assets/img/ssh.png">
-<meta property="og:updated_time" content="2018-02-21T02:59:12.000Z">
+<meta property="og:image" content="https://www.wty90.com/assets/img/my-git-commits.png">
+<meta property="og:image" content="https://www.wty90.com/assets/img/git-email.png">
+<meta property="og:updated_time" content="2018-02-23T09:03:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自动刷github提交记录">
+<meta name="twitter:title" content="手把手教你刷github提交记录">
 <meta name="twitter:description" content="前言进入自己github主页会看到自己的提交记录，如果某天没有提交记录，那天的小方框就显示灰色。强迫症的我，每次进来看着就感觉不爽，想着自己每天记得提交点东西，争取像阮一峰大神一样，每天都有提交记录。  
 
 但是，毕竟是人，哪天忙了就会忘记提交，所以想着能不能实现在自己阿里云服务器(linux系统)上，设置cron，定制下git命令，实现每天定点自动提交。
@@ -196,7 +198,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      自动刷github提交记录
+      手把手教你刷github提交记录
     </h1>
   
 
@@ -260,8 +262,11 @@ var _hmt = _hmt || [];
 <h3 id="4-1-修改系统时间为想要弥补时间段的终点"><a href="#4-1-修改系统时间为想要弥补时间段的终点" class="headerlink" title="4.1 修改系统时间为想要弥补时间段的终点"></a>4.1 修改系统时间为想要弥补时间段的终点</h3><p>比如，想要修改时间段位2018-01-01~2018-01-31，那么需要修改系统时间为2018-01-31，脚本如下：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">timedatectl <span class="built_in">set</span>-time <span class="string">'2018-01-31 13:00:00'</span></div></pre></td></tr></table></figure></p>
 <h3 id="4-2-进入项目目录，执行loop脚本"><a href="#4-2-进入项目目录，执行loop脚本" class="headerlink" title="4.2 进入项目目录，执行loop脚本"></a>4.2 进入项目目录，执行loop脚本</h3><p>确定我们要修改的天数，2018-01-01到2018-01-31一共是31天，我们在命令行传入此参数<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> git-auto-commit</div><div class="line">screen <span class="_">-d</span> -m -L sh loop.sh 31</div></pre></td></tr></table></figure></p>
 <p>这里，<code>screen -d -m -L</code>命令可以将我们执行的任务后台，这样即使退出服务器连接也不会终止脚本的运行。大家可以刷新自己的github主页，看看是不是灰色区域都变绿了。</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>至此，github自动提交设置就完成了，妈妈再也不用担心我哪天忘记提交github。:smile:</p>
-<p>工作生活中，我们经常会有各种各样的想法，大家不要忽视了或者觉得很难就不去做。其实真正动手去实践，发现并没有那么难，反而很有趣。而且不知不觉中就学到了很多知识。  </p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>至此，github自动提交设置就完成了。我们来看下成果：</p>
+<p><img src="/assets/img/my-git-commits.png" alt="我的github提交记录" title="我的github提交记录"></p>
+<p>然后每天中午12点会受到邮件如下：</p>
+<p><img src="/assets/img/git-email.png" alt="git自动提交邮件" title="git自动提交邮件"></p>
+<p>其实，刷github提交记录本身没什么意义，但是我想说的是：工作生活中，我们经常会有各种各样的想法，大家不要忽视了或者觉得很难就不去做。其实真正动手去实践，发现并没有那么难，反而很有趣。而且不知不觉中就学到了很多知识。  </p>
 <p>(完)</p>
 
       
@@ -386,7 +391,7 @@ var _hmt = _hmt || [];
   
   
     <a href="/2018/02/16/cms-blog/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">博客内容管理系统</div>
+      <div class="article-nav-title">一个基于Vue.js+Mongodb+Node.js的博客内容管理系统</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -533,7 +538,7 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">cms</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,31 +550,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">github自动提交</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">移动端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">兼容性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cms</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -585,6 +570,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">移动端布局</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">立马理财</a>
               </li>
              
@@ -593,19 +586,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">移动端布局</a>
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">seo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">页面制作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">github自动提交</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,6 +599,26 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">seo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">移动端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">兼容性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">页面制作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
             
             <div class="clearfix"></div>
